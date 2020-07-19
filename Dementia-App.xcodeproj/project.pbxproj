@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D62486424C3DA600085C195 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486324C3DA600085C195 /* HomeView.swift */; };
+		0D62486624C3DA800085C195 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486524C3DA800085C195 /* ReportsView.swift */; };
+		0D62486824C3DA920085C195 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486724C3DA920085C195 /* SettingsView.swift */; };
+		0D62486B24C3DAB50085C195 /* BigCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486A24C3DAB50085C195 /* BigCategories.swift */; };
+		0D62486D24C3DAC60085C195 /* Physical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486C24C3DAC60085C195 /* Physical.swift */; };
+		0D62486F24C3DAD40085C195 /* Mental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486E24C3DAD40085C195 /* Mental.swift */; };
+		0D62487124C3DB2A0085C195 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487024C3DB2A0085C195 /* Social.swift */; };
+		0D62487324C3DB3E0085C195 /* PhysicalSymptoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487224C3DB3E0085C195 /* PhysicalSymptoms.swift */; };
+		0D62487524C3DB570085C195 /* MentalSymptoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487424C3DB570085C195 /* MentalSymptoms.swift */; };
+		0D62487724C3DB6A0085C195 /* SocialSymptoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487624C3DB6A0085C195 /* SocialSymptoms.swift */; };
+		0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487824C3DB780085C195 /* NewSymptom.swift */; };
+		0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487B24C3DBA50085C195 /* TrackDiet.swift */; };
+		0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487E24C3DBC00085C195 /* Questionaire.swift */; };
 		0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3D23924C3D9590015A31C /* AppDelegate.swift */; };
 		0DE3D23C24C3D9590015A31C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3D23B24C3D9590015A31C /* SceneDelegate.swift */; };
 		0DE3D23F24C3D9590015A31C /* Dementia_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3D23D24C3D9590015A31C /* Dementia_App.xcdatamodeld */; };
@@ -17,6 +30,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D62486324C3DA600085C195 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0D62486524C3DA800085C195 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
+		0D62486724C3DA920085C195 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0D62486A24C3DAB50085C195 /* BigCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategories.swift; sourceTree = "<group>"; };
+		0D62486C24C3DAC60085C195 /* Physical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physical.swift; sourceTree = "<group>"; };
+		0D62486E24C3DAD40085C195 /* Mental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mental.swift; sourceTree = "<group>"; };
+		0D62487024C3DB2A0085C195 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		0D62487224C3DB3E0085C195 /* PhysicalSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalSymptoms.swift; sourceTree = "<group>"; };
+		0D62487424C3DB570085C195 /* MentalSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalSymptoms.swift; sourceTree = "<group>"; };
+		0D62487624C3DB6A0085C195 /* SocialSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSymptoms.swift; sourceTree = "<group>"; };
+		0D62487824C3DB780085C195 /* NewSymptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptom.swift; sourceTree = "<group>"; };
+		0D62487B24C3DBA50085C195 /* TrackDiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDiet.swift; sourceTree = "<group>"; };
+		0D62487E24C3DBC00085C195 /* Questionaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questionaire.swift; sourceTree = "<group>"; };
 		0DE3D23624C3D9590015A31C /* Dementia-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dementia-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE3D23924C3D9590015A31C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE3D23B24C3D9590015A31C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +65,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D62486224C3DA430085C195 /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D62486324C3DA600085C195 /* HomeView.swift */,
+				0D62486524C3DA800085C195 /* ReportsView.swift */,
+				0D62486724C3DA920085C195 /* SettingsView.swift */,
+			);
+			path = "Main Views";
+			sourceTree = "<group>";
+		};
+		0D62486924C3DAA00085C195 /* Symptoms */ = {
+			isa = PBXGroup;
+			children = (
+				0D62486A24C3DAB50085C195 /* BigCategories.swift */,
+				0D62486C24C3DAC60085C195 /* Physical.swift */,
+				0D62486E24C3DAD40085C195 /* Mental.swift */,
+				0D62487024C3DB2A0085C195 /* Social.swift */,
+				0D62487224C3DB3E0085C195 /* PhysicalSymptoms.swift */,
+				0D62487424C3DB570085C195 /* MentalSymptoms.swift */,
+				0D62487624C3DB6A0085C195 /* SocialSymptoms.swift */,
+				0D62487824C3DB780085C195 /* NewSymptom.swift */,
+			);
+			path = Symptoms;
+			sourceTree = "<group>";
+		};
+		0D62487A24C3DB970085C195 /* Diet */ = {
+			isa = PBXGroup;
+			children = (
+				0D62487B24C3DBA50085C195 /* TrackDiet.swift */,
+			);
+			path = Diet;
+			sourceTree = "<group>";
+		};
+		0D62487D24C3DBB30085C195 /* Brain Train */ = {
+			isa = PBXGroup;
+			children = (
+				0D62487E24C3DBC00085C195 /* Questionaire.swift */,
+			);
+			path = "Brain Train";
+			sourceTree = "<group>";
+		};
 		0DE3D22D24C3D9590015A31C = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +128,10 @@
 				0DE3D23924C3D9590015A31C /* AppDelegate.swift */,
 				0DE3D23B24C3D9590015A31C /* SceneDelegate.swift */,
 				0DE3D24024C3D9590015A31C /* ContentView.swift */,
+				0D62486224C3DA430085C195 /* Main Views */,
+				0D62486924C3DAA00085C195 /* Symptoms */,
+				0D62487A24C3DB970085C195 /* Diet */,
+				0D62487D24C3DBB30085C195 /* Brain Train */,
 				0DE3D24224C3D95A0015A31C /* Assets.xcassets */,
 				0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */,
 				0DE3D24A24C3D95A0015A31C /* Info.plist */,
@@ -149,9 +220,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D62486824C3DA920085C195 /* SettingsView.swift in Sources */,
 				0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */,
+				0D62486F24C3DAD40085C195 /* Mental.swift in Sources */,
+				0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */,
+				0D62487524C3DB570085C195 /* MentalSymptoms.swift in Sources */,
+				0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */,
 				0DE3D23F24C3D9590015A31C /* Dementia_App.xcdatamodeld in Sources */,
 				0DE3D24124C3D9590015A31C /* ContentView.swift in Sources */,
+				0D62486424C3DA600085C195 /* HomeView.swift in Sources */,
+				0D62487124C3DB2A0085C195 /* Social.swift in Sources */,
+				0D62486624C3DA800085C195 /* ReportsView.swift in Sources */,
+				0D62486B24C3DAB50085C195 /* BigCategories.swift in Sources */,
+				0D62487724C3DB6A0085C195 /* SocialSymptoms.swift in Sources */,
+				0D62486D24C3DAC60085C195 /* Physical.swift in Sources */,
+				0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */,
+				0D62487324C3DB3E0085C195 /* PhysicalSymptoms.swift in Sources */,
 				0DE3D23C24C3D9590015A31C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

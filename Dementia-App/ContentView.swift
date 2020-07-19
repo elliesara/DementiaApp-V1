@@ -2,35 +2,32 @@
 //  ContentView.swift
 //  Dementia-App
 //
-//  Created by Ellie Sara Huang on 7/18/20.
+//  Created by Ellie Sara Huang on 7/10/20.
 //  Copyright © 2020 Neuroscience Amador Valley. All rights reserved.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection = 0
- 
     var body: some View {
-        TabView(selection: $selection){
-            Text("First View")
-                .font(.title)
+        TabView {
+            HomeView()
                 .tabItem {
-                    VStack {
-                        Image("first")
-                        Text("First")
-                    }
+                    Image(systemName: "house")
+                    Text("Home")
                 }
-                .tag(0)
-            Text("Second View")
-                .font(.title)
+            
+            ReportsView()
                 .tabItem {
-                    VStack {
-                        Image("second")
-                        Text("Second")
-                    }
+                    Image(systemName: "doc.on.clipboard")
+                    Text("Reports")
                 }
-                .tag(1)
+            
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
         }
     }
 }
