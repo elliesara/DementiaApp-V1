@@ -22,52 +22,77 @@ struct PhysicalSymptoms: View {
     @State private var hair: Bool = false
     @State private var convulsion: Bool = false
     
+    /// needed to make the List match the background color
+    
+    init(){
+        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
+        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
+        UITableView.appearance().tableFooterView = UIView()
+    }
+    
     var body: some View {
         GeometryReader { geometry in
-                
-            VStack {
-                
-                Text("Physical Symptoms").font(.largeTitle).fontWeight(.bold)
-                Text("Select all that apply").font(.caption).foregroundColor(Color.blue)
-                    .padding(.top, geometry.size.height*0.013)
-                
+        
+            ZStack {
+                Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1))
+                    .edgesIgnoringSafeArea(.all)
+                        
                 VStack {
-                    Toggle(isOn: self.$unkempt) {
-                        Text("Having an unkempt appearance")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$washBody) {
-                        Text("Inability to wash body")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$clothing) {
-                        Text("Difficulty choosing clothing")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$teeth) {
-                        Text("Difficulty brushing teeth")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$wearing) {
-                        Text("Trouble with wearing clothes")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$toilet) {
-                        Text("Inability to sit on toilet")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$hands) {
-                        Text("Difficulty Washing Hands")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$hair) {
-                        Text("Inability to Shave/Comb Hair")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
-                    Toggle(isOn: self.$convulsion) {
-                        Text("Convulsions")
-                    }.frame(width: geometry.size.width*0.78)
-                    .padding(.bottom)
+                    
+                    Text("Physical Symptoms").font(.largeTitle).fontWeight(.bold).foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
+                    Text("Select all that apply").font(.caption).foregroundColor(Color.blue)
+                        .padding(.top, geometry.size.height*0.013)
+                    
+//                VStack {
+//                    Toggle(isOn: self.$unkempt) {
+//                        Text("Having an unkempt appearance")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$washBody) {
+//                        Text("Inability to wash body")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$clothing) {
+//                        Text("Difficulty choosing clothing")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$teeth) {
+//                        Text("Difficulty brushing teeth")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$wearing) {
+//                        Text("Trouble with wearing clothes")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$toilet) {
+//                        Text("Inability to sit on toilet")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$hands) {
+//                        Text("Difficulty Washing Hands")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$hair) {
+//                        Text("Inability to Shave/Comb Hair")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                    Toggle(isOn: self.$convulsion) {
+//                        Text("Convulsions")
+//                    }.frame(width: geometry.size.width*0.78)
+//                    .padding(.bottom)
+//                }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).padding(.top, geometry.size.height*0.02)
+                    
+                    List {
+                        HStack { Text("Having an unkempt appearance"); Spacer(); CheckMark() }
+                        HStack { Text("Inability to wash body"); Spacer(); CheckMark() }
+                        HStack { Text("Difficulty choosing clothing"); Spacer(); CheckMark() }
+                        HStack { Text("Difficulty brushing teeth"); Spacer(); CheckMark() }
+                        HStack { Text("Trouble with wearing clothes"); Spacer(); CheckMark() }
+                        HStack { Text("Inability to sit on toilet"); Spacer(); CheckMark() }
+                        HStack { Text("Difficulty Washing Hands"); Spacer(); CheckMark() }
+                        HStack { Text("Inability to Shave/Comb Hair"); Spacer(); CheckMark() }
+                        HStack { Text("Convulsions"); Spacer(); CheckMark() }
+                    }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.9)
                     
                     Button(action: { self.newButton = true }) {
 
@@ -90,17 +115,15 @@ struct PhysicalSymptoms: View {
                     }.sheet(isPresented: self.$newButton) {
                         NewSymptom()
                     }
+                    
+                    Spacer()
+                    
                 }
-                    .padding(.top, geometry.size.height*0.02)
-                
-                Spacer()
-                
+                .navigationBarItems(trailing:
+                    Button(action: { self.presentation.wrappedValue.dismiss() }) {
+                        Text("Submit")
+                })
             }
-            .navigationBarItems(trailing:
-                Button(action: { self.presentation.wrappedValue.dismiss() }) {
-                    Text("Submit")
-            })
-            
         }
     }
 }

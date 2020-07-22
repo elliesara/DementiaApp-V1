@@ -25,23 +25,24 @@ struct BigCategories: View {
                 Button(action: { self.physical = true }) {
 
                     HStack {
+                        Text("Physical")
+                            .font(.system(size: geometry.size.width*0.07))
+                            .fontWeight(.bold)
+                            .frame(width: geometry.size.width*0.3)
+                            .padding()
+                        
                         Image(systemName: "hand.raised")
                             .resizable()
                             .scaledToFit()
                             .frame(width: geometry.size.width*0.2, height: geometry.size.height*0.105)
                             .padding(.leading)
 
-                        Text("Physical")
-                            .font(.system(size: geometry.size.width*0.07))
-                            .fontWeight(.bold)
-                            .padding()
-
                         Spacer()
                     }
                     .padding()
                     .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                     .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.23)
-                    .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
+                    .background(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
                     .cornerRadius(25)
 
                 }.sheet(isPresented: self.$physical) {
@@ -54,23 +55,24 @@ struct BigCategories: View {
                 Button(action: { self.mental.toggle() }) {
 
                     HStack {
+                        Text("Mental")
+                            .font(.system(size: geometry.size.width*0.07))
+                            .fontWeight(.bold)
+                            .frame(width: geometry.size.width*0.3)
+                            .padding()
+                        
                         Image(systemName: "eye")
                             .resizable()
                             .scaledToFit()
                             .frame(width: geometry.size.width*0.2, height: geometry.size.height*0.105)
                             .padding(.leading)
-
-                        Text("Mental")
-                            .font(.system(size: geometry.size.width*0.07))
-                            .fontWeight(.bold)
-                            .padding()
                         
                         Spacer()
                     }
                     .padding()
                     .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                     .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.23)
-                    .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
+                    .background(Color(#colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)))
                     .cornerRadius(25)
 
                 }.sheet(isPresented: self.$mental) {
@@ -83,23 +85,24 @@ struct BigCategories: View {
                 Button(action: { self.social.toggle() }) {
 
                     HStack {
+                        Text("Social")
+                            .font(.system(size: geometry.size.width*0.07))
+                            .fontWeight(.bold)
+                            .frame(width: geometry.size.width*0.3)
+                            .padding()
+                        
                         Image(systemName: "person.3.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(width: geometry.size.width*0.2, height: geometry.size.height*0.105)
                             .padding(.leading)
-
-                        Text("Social")
-                            .font(.system(size: geometry.size.width*0.07))
-                            .fontWeight(.bold)
-                            .padding()
-
+                        
                         Spacer()
                     }
                     .padding()
                     .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                     .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.23)
-                    .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
+                    .background(Color(#colorLiteral(red: 0.9529411765, green: 0.8804875016, blue: 0.7963053584, alpha: 1)))
                     .cornerRadius(25)
 
                 }.sheet(isPresented: self.$social) {

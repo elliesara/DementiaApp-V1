@@ -35,49 +35,16 @@ struct TrackDiet: View {
                 
                 VStack {
                     
-                    HStack {
-
-                        Text("One Serving of Vegetables")
-                        Spacer()
-                        CheckMark()
-                    }
-                    HStack {
-                        Text("Three Servings of Whole Grains")
-                        Spacer()
-                        CheckMark()
-                    }
-                    HStack {
-                        Text("One Serving of Leafy Green Vegetables")
-                        Spacer()
-                        CheckMark()
-                    }
-                    HStack {
-                        Text("One Serving of Berries")
-                        Spacer()
-                        CheckMark()
-                    }
-                    HStack {
-                        Text("One Serving of Poultry")
-                        Spacer()
-                        CheckMark()
-                    }
-                    HStack {
-                        Text("One Serving of Nuts")
-                        Spacer()
-                        CheckMark()
-                    }
-                    HStack {
-                        Text("Two Boiled Eggs")
-                        Spacer()
-                        CheckMark()
-                    }
-                    HStack {
-                        Text("One Glass of Milk")
-                        Spacer()
-                        CheckMark()
-                    }
+                    HStack { Text("One Serving of Vegetables"); Spacer(); CheckMark() }
+                    HStack { Text("Three Servings of Whole Grains"); Spacer(); CheckMark() }
+                    HStack { Text("One Serving of Leafy Green Vegetables"); Spacer(); CheckMark() }
+                    HStack { Text("One Serving of Berries"); Spacer(); CheckMark() }
+                    HStack { Text("One Serving of Poultry"); Spacer(); CheckMark() }
+                    HStack { Text("One Serving of Nuts"); Spacer(); CheckMark() }
+                    HStack { Text("Two Boiled Eggs"); Spacer(); CheckMark() }
+                    HStack { Text("One Glass of Milk"); Spacer(); CheckMark() }
                     
-                }.frame(width: UIScreen.main.bounds.width*0.78)
+                }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.78)
             }
         }
     }
@@ -93,10 +60,9 @@ struct CheckMark: View {
             self.checkState = !self.checkState
             print("State : \(self.checkState)")
 
-
         }) {
            Rectangle()
-                .fill(self.checkState ? Color.blue : Color(#colorLiteral(red: 0.9592792897, green: 0.9592792897, blue: 0.9592792897, alpha: 1)))
+                .fill(self.checkState ? Color(#colorLiteral(red: 0.5909615549, green: 0.5909615549, blue: 0.5909615549, alpha: 1)) : Color(#colorLiteral(red: 0.9592792897, green: 0.9592792897, blue: 0.9592792897, alpha: 1)))
                 .overlay(Rectangle().stroke(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)), lineWidth:2))
                 .frame(width:20, height:20, alignment: .center)
                 .cornerRadius(5)

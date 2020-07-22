@@ -29,11 +29,11 @@ struct Social: View {
                                 
                             Image(systemName: "person.3.fill")
                                 .font(.system(size: geometry.size.width*0.15))
-                                .foregroundColor(Color(#colorLiteral(red: 0.4546967149, green: 0.3675074577, blue: 0.307084024, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             
                             Text("Social")
                                 .font(.system(size: geometry.size.width*0.1)).fontWeight(.bold)
-                                .foregroundColor(Color(#colorLiteral(red: 0.4546967149, green: 0.3675074577, blue: 0.307084024, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             Text("Select all that apply")
                                 .font(.caption).foregroundColor(Color.blue)
                             
@@ -43,17 +43,17 @@ struct Social: View {
                                     Text("Impaired Verbal Communication")
                                 }.frame(width: geometry.size.width*0.78)
                                     .padding(.bottom)
-                                .foregroundColor(Color(#colorLiteral(red: 0.6109603643, green: 0.4864929318, blue: 0.4044164419, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                                 Toggle(isOn: self.$compromisedFamily) {
                                     Text("Compromised Family Coping")
                                 }.frame(width: geometry.size.width*0.78)
                                 .padding(.bottom)
-                                .foregroundColor(Color(#colorLiteral(red: 0.6117647059, green: 0.4880746603, blue: 0.4047411978, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                                 Toggle(isOn: self.$socialIsolation) {
                                     Text("Social Isolation")
                                 }.frame(width: geometry.size.width*0.78)
                                 .padding(.bottom)
-                                .foregroundColor(Color(#colorLiteral(red: 0.5345613896, green: 0.4285077164, blue: 0.3562972058, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                                 
                             }.padding(.top)
                                 
@@ -104,14 +104,12 @@ struct Social: View {
                                 
                                 Spacer()
                                 
-                        }
-                        .navigationBarItems(leading:
+                        }.navigationBarItems(leading:
                             Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                                 Text("Cancel")
-                            }, trailing: Button(action: {
-                                self.presentationMode.wrappedValue.dismiss()
-                            }) {
-                                Text("Submit")
+                            }, trailing:
+                            NavigationLink(destination: SocialSymptoms()) {
+                                Text("Next")
                             })
                 }
             }

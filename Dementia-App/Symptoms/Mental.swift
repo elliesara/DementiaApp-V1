@@ -31,11 +31,11 @@ struct Mental: View {
                             
                         Image(systemName: "eye")
                             .font(.system(size: geometry.size.width*0.15))
-                            .foregroundColor(Color(#colorLiteral(red: 0.2947857678, green: 0.3605085015, blue: 0.4712479711, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                         
                         Text("Mental")
                             .font(.system(size: geometry.size.width*0.1)).fontWeight(.bold)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2947857678, green: 0.3605085015, blue: 0.4712479711, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                         Text("Select all that apply")
                             .font(.caption).foregroundColor(Color.blue)
                         
@@ -45,12 +45,12 @@ struct Mental: View {
                                 Text("Disturbed Thought Processes")
                             }.frame(width: geometry.size.width*0.78)
                                 .padding(.bottom)
-                                .foregroundColor(Color(#colorLiteral(red: 0.2816148299, green: 0.3447424839, blue: 0.4829353451, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             Toggle(isOn: self.$chronicConfusion) {
                                 Text("Chronic Confusion")
                             }.frame(width: geometry.size.width*0.78)
                                 .padding(.bottom)
-                                .foregroundColor(Color(#colorLiteral(red: 0.2816148299, green: 0.3447424839, blue: 0.4829353451, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             
                         }.padding(.top)
                             
@@ -101,14 +101,12 @@ struct Mental: View {
                             
                             Spacer()
                             
-                        }
-                        .navigationBarItems(leading:
+                        }.navigationBarItems(leading:
                             Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                                 Text("Cancel")
-                            }, trailing: Button(action: {
-                                self.presentationMode.wrappedValue.dismiss()
-                            }) {
-                                Text("Submit")
+                            }, trailing:
+                            NavigationLink(destination: MentalSymptoms()) {
+                                Text("Next")
                             })
                 }
             }

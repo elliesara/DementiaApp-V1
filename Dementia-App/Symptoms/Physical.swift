@@ -33,10 +33,10 @@ struct Physical: View {
                         
                         Image(systemName: "hand.raised")
                             .font(.system(size: geometry.size.width*0.15))
-                        .foregroundColor(Color(#colorLiteral(red: 0.2079180777, green: 0.2956882417, blue: 0.3357761502, alpha: 1)))
+                        .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                         Text("Physical")
                             .font(.system(size: geometry.size.width*0.1)).fontWeight(.bold)
-                        .foregroundColor(Color(#colorLiteral(red: 0.2079180777, green: 0.2956882417, blue: 0.3357761502, alpha: 1)))
+                        .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                         Text("Select all that apply")
                             .font(.caption).foregroundColor(Color.blue)
                         
@@ -50,26 +50,26 @@ struct Physical: View {
                                 Text("Self-Care Deficit")
                             }.frame(width: geometry.size.width*0.78)
                                 .padding(.bottom)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2860153317, green: 0.4073066711, blue: 0.4624299407, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             Toggle(isOn: self.$disturbedSleep) {
                                 Text("Disturbed Sleep Pattern")
                             }.frame(width: geometry.size.width*0.78)
                             .padding(.bottom)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2860153317, green: 0.4073066711, blue: 0.4624299407, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             Toggle(isOn: self.$impairedMobility) {
                                 Text("Impaired Physical Mobility")
                             }.frame(width: geometry.size.width*0.78)
                             .padding(.bottom)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2860153317, green: 0.4073066711, blue: 0.4624299407, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             Toggle(isOn: self.$riskForInjury) {
                                 Text("Risk For Injury")
                             }.frame(width: geometry.size.width*0.78)
                             .padding(.bottom)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2860153317, green: 0.4073066711, blue: 0.4624299407, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             Toggle(isOn: self.$disturbedSense) {
                                 Text("Disturbed Sensory Perception")
                             }.frame(width: geometry.size.width*0.78)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2860153317, green: 0.4073066711, blue: 0.4624299407, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                             
 //                            RadioGroupPicker(
 //                                selectedIndex: self.$selectedFirst,
