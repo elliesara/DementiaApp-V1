@@ -13,117 +13,98 @@ struct TrackDiet: View {
     @State var checkState: Bool = false
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             
-            GeometryReader{ geometry in
+            VStack {
                 
-                VStack(){
+                Group {
                     
                     Text("Track What You Ate!")
                         .fontWeight(.bold)
                         .font(.largeTitle)
                     Text("Eat healthier and get smarter!")
                         .padding(.bottom, 40)
-                    Text("Did you eat today:")
-                        .fontWeight(.bold)
-                        .offset(x:-95)
+                    HStack {
+                        Text("Did you eat today:")
+                            .fontWeight(.bold)
+                            .frame(width: UIScreen.main.bounds.width*0.5)
+                        Spacer()
+                    }
                     
-                    VStack(alignment: .leading){
-                        
-                        HStack(){
-                            
-                            Text("One Serving of Vegetables")
-                                .frame(width: geometry.size.width*0.8)
-                            Spacer()
-                            Button(action:
-                                {
-                                    self.checkState = !self.checkState
-                                    print("State : \(self.checkState)")
+                }
+                
+                VStack(alignment: .leading) {
+                    
+                    HStack {
 
-
-                            }) {
-                                       Rectangle()
-                                                .fill(self.checkState ? Color.green : Color.gray)
-                                                .overlay(Rectangle().stroke(Color.gray,lineWidth:2))
-                                                .frame(width:20, height:20, alignment: .center)
-                                }
-                        }
-                        HStack{
-                            Text("Three Servings of Whole Grains")
-                                .frame(width: geometry.size.width*0.8)
-                                .offset(x:19)
-                            Spacer()
-                            Rectangle()
-                                .fill(Color.white)
-                                .overlay(Rectangle().stroke(Color.gray, lineWidth:2))
-                                .frame(width:20,height:20)
-                        }
-                        HStack{
-                            Text("One Serving of Leafy Green\n Vegetables")
-                                .frame(width: geometry.size.width*0.8,height:45)
-                                .offset(x:5)
-                            Spacer()
-                            Rectangle()
-                                .fill(Color.white)
-                                .overlay(Rectangle().stroke(Color.gray, lineWidth:2))
-                                .frame(width:20,height:20)
-                        }
-                        HStack{
-                            Text("One Serving of Berries")
-                                .frame(width: geometry.size.width*0.8)
-                                .offset(x:-15)
-                            Spacer()
-                            Rectangle()
-                                .fill(Color.white)
-                                .overlay(Rectangle().stroke(Color.gray, lineWidth:2))
-                                .frame(width:20,height:20)
-                        }
-                        HStack{
-                            Text("One Serving of Poultry")
-                                .frame(width: geometry.size.width*0.8)
-                                .offset(x:-15)
-                            Spacer()
-                            Rectangle()
-                                .fill(Color.white)
-                                .overlay(Rectangle().stroke(Color.gray, lineWidth:2))
-                                .frame(width:20,height:20)
-                        }
-                        HStack{
-                            Text("One Serving of Nuts")
-                                .frame(width: geometry.size.width*0.8)
-                                .offset(x:-21)
-                            Spacer()
-                            Rectangle()
-                                .fill(Color.white)
-                                .overlay(Rectangle().stroke(Color.gray, lineWidth:2))
-                                .frame(width:20,height:20)
-                        }
-                        HStack{
-                            Text("Two Boiled Eggs")
-                                .frame(width: geometry.size.width*0.8)
-                                .offset(x:-34)
-                            Spacer()
-                            Rectangle()
-                                .fill(Color.white)
-                                .overlay(Rectangle().stroke(Color.gray, lineWidth:2))
-                                .frame(width:20,height:20)
-                        }
-                        HStack{
-                            Text("One Glass of Milk")
-                                .frame(width: geometry.size.width*0.8)
-                                .offset(x:-30)
-                            Spacer()
-                            Rectangle()
-                                .fill(Color.white)
-                                .overlay(Rectangle().stroke(Color.gray, lineWidth:2))
-                                .frame(width:20,height:20)
-                        }
-                    }.offset(x:-30)
-              }
+                        Text("One Serving of Vegetables")
+                        Spacer()
+                        CheckMark()
+                    }
+                    HStack {
+                        Text("Three Servings of Whole Grains")
+                        Spacer()
+                        CheckMark()
+                    }
+                    HStack {
+                        Text("One Serving of Leafy Green Vegetables")
+                        Spacer()
+                        CheckMark()
+                    }
+                    HStack {
+                        Text("One Serving of Berries")
+                        Spacer()
+                        CheckMark()
+                    }
+                    HStack {
+                        Text("One Serving of Poultry")
+                        Spacer()
+                        CheckMark()
+                    }
+                    HStack {
+                        Text("One Serving of Nuts")
+                        Spacer()
+                        CheckMark()
+                    }
+                    HStack {
+                        Text("Two Boiled Eggs")
+                        Spacer()
+                        CheckMark()
+                    }
+                    HStack {
+                        Text("One Glass of Milk")
+                        Spacer()
+                        CheckMark()
+                    }
+                    
+                }.frame(width: UIScreen.main.bounds.width*0.78)
             }
         }
     }
 }
+
+struct CheckMark: View {
+    
+    @State var checkState: Bool = false
+    
+    var body: some View {
+        Button(action:
+            {
+            self.checkState = !self.checkState
+            print("State : \(self.checkState)")
+
+
+        }) {
+           Rectangle()
+                .fill(self.checkState ? Color.blue : Color(#colorLiteral(red: 0.9592792897, green: 0.9592792897, blue: 0.9592792897, alpha: 1)))
+                .overlay(Rectangle().stroke(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)), lineWidth:2))
+                .frame(width:20, height:20, alignment: .center)
+                .cornerRadius(5)
+        }
+    }
+}
+
+
 struct TrackDiet_Previews: PreviewProvider {
     static var previews: some View {
         TrackDiet()
