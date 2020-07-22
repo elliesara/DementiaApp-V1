@@ -23,7 +23,7 @@ struct TrackDiet: View {
                         .fontWeight(.bold)
                         .font(.largeTitle)
                     Text("Eat healthier and get smarter!")
-                        .padding(.bottom, 40)
+                        .padding(.bottom, UIScreen.main.bounds.height*0.04)
                     HStack {
                         Text("Did you eat today:")
                             .fontWeight(.bold)
@@ -33,7 +33,7 @@ struct TrackDiet: View {
                     
                 }
                 
-                VStack(alignment: .leading) {
+                VStack {
                     
                     HStack {
 
