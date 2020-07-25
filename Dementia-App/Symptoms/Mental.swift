@@ -11,7 +11,7 @@ import SwiftUI
 struct Mental: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @State private var mentalSymptoms = false
+    
     @State private var disturbedThought: Bool = false
     @State private var chronicConfusion: Bool = false
     @State private var impairedMobility: Bool = false
@@ -54,7 +54,28 @@ struct Mental: View {
                             
                         }.padding(.top)
                             
+                        Spacer()
                             
+                    }.navigationBarItems(leading:
+                        Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+                            Text("Cancel")
+                        }, trailing:
+                        NavigationLink(destination: MentalSymptoms()) {
+                            Text("Next")
+                        })
+                }
+            }
+        }
+    }
+}
+
+struct Mental_Previews: PreviewProvider {
+    static var previews: some View {
+        Mental()
+    }
+}
+
+/// for later use if needed for radio buttons
 //                            HStack{
 //                                Text("Yes")
 //                                    .padding(.top,-50)
@@ -98,24 +119,3 @@ struct Mental: View {
 //                                    .frame(width:20,height:20)
 //                                    .padding(.leading,-20)
 //                            }
-                            
-                            Spacer()
-                            
-                        }.navigationBarItems(leading:
-                            Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
-                                Text("Cancel")
-                            }, trailing:
-                            NavigationLink(destination: MentalSymptoms()) {
-                                Text("Next")
-                            })
-                }
-            }
-        }
-    }
-}
-
-struct Mental_Previews: PreviewProvider {
-    static var previews: some View {
-        Mental()
-    }
-}

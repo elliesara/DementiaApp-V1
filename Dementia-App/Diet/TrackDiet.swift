@@ -19,7 +19,7 @@ struct TrackDiet: View {
                 
                 Group {
                     
-                    Text("Track What You Ate!")
+                    Text("Track What You Ate")
                         .fontWeight(.bold)
                         .font(.largeTitle)
                     Text("Eat healthier and get smarter!")

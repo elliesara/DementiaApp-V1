@@ -57,6 +57,10 @@ struct NewSymptom: View {
             Spacer()
             
         }.padding()
+        .navigationBarItems(trailing:
+            Button(action: { self.presentation.wrappedValue.dismiss() }) {
+                Text("Submit")
+        })
     }
 }
 

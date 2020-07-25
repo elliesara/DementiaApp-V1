@@ -52,7 +52,7 @@ struct BigCategories: View {
                 
             /// Mental
                 
-                Button(action: { self.mental.toggle() }) {
+                Button(action: { self.mental = true }) {
 
                     HStack {
                         Text("Mental")
@@ -82,7 +82,7 @@ struct BigCategories: View {
                 
             /// Social
                 
-                Button(action: { self.social.toggle() }) {
+                Button(action: { self.social = true }) {
 
                     HStack {
                         Text("Social")

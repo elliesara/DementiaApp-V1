@@ -23,7 +23,6 @@ struct MentalSymptoms: View {
     @State private var explosiveBehavior: Bool = false
     
     /// needed to make the List match the background color
-    
     init(){
         UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
         UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
@@ -43,6 +42,58 @@ struct MentalSymptoms: View {
                     Text("Select all that apply").font(.caption).foregroundColor(Color.blue)
                         .padding(.top, geometry.size.height*0.013)
                     
+                    List {
+                        HStack { Text("Having an unkempt appearance"); Spacer(); CheckMark() }
+                        HStack { Text("Inability to wash body"); Spacer(); CheckMark() }
+                        HStack { Text("Difficulty choosing clothing"); Spacer(); CheckMark() }
+                        HStack { Text("Difficulty brushing teeth"); Spacer(); CheckMark() }
+                        HStack { Text("Trouble with wearing clothes"); Spacer(); CheckMark() }
+                        HStack { Text("Inability to sit on toilet"); Spacer(); CheckMark() }
+                        HStack { Text("Difficulty Washing Hands"); Spacer(); CheckMark() }
+                        HStack { Text("Inability to Shave/Comb Hair"); Spacer(); CheckMark() }
+                        HStack { Text("Convulsions"); Spacer(); CheckMark() }
+                    }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.9)
+                    
+                    Button(action: { self.newSymptom = true}) {
+                        
+                        HStack(alignment: .center) {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geometry.size.width * 0.05,
+                                        height: geometry.size.height * 0.05)
+                            
+                            Text("New Symptom")
+                                .font(.system(size: geometry.size.width * 0.048))
+                                .fontWeight(.bold)
+                        }
+                        .padding()
+                        .foregroundColor(Color(.white))
+                        .frame(width: geometry.size.width * 0.5,
+                                height: geometry.size.height * 0.063)
+                        .background(Color(#colorLiteral(red: 0.6043982389, green: 0.6650630815, blue: 0.7846405509, alpha: 1)))
+                            .cornerRadius(10)
+                        
+                    }.sheet(isPresented: self.$newSymptom) {
+                        NewSymptom()
+                    }
+                    
+                    Spacer()
+                }
+            }
+        }
+    }
+}
+
+
+struct MentalSymptoms_Previews: PreviewProvider {
+    static var previews: some View {
+        MentalSymptoms()
+    }
+}
+
+
+/// we will most like use checkmarks instead of switches but just in case:
 //                VStack {
 //                    Toggle(isOn: self.$decreasedAbilityToReason) {
 //                        Text("Self-Care Deficit")
@@ -81,50 +132,3 @@ struct MentalSymptoms: View {
 //                    }.frame(width: geometry.size.width*0.78)
 //                    .padding(.bottom)
 //                }.foregroundColor(Color(#colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)))
-                    
-                    List {
-                        HStack { Text("Having an unkempt appearance"); Spacer(); CheckMark() }
-                        HStack { Text("Inability to wash body"); Spacer(); CheckMark() }
-                        HStack { Text("Difficulty choosing clothing"); Spacer(); CheckMark() }
-                        HStack { Text("Difficulty brushing teeth"); Spacer(); CheckMark() }
-                        HStack { Text("Trouble with wearing clothes"); Spacer(); CheckMark() }
-                        HStack { Text("Inability to sit on toilet"); Spacer(); CheckMark() }
-                        HStack { Text("Difficulty Washing Hands"); Spacer(); CheckMark() }
-                        HStack { Text("Inability to Shave/Comb Hair"); Spacer(); CheckMark() }
-                        HStack { Text("Convulsions"); Spacer(); CheckMark() }
-                    }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.9)
-                    
-                    Button(action: { self.newSymptom = true}) {
-                        
-                        HStack(alignment: .center) {
-                            Image(systemName: "plus")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geometry.size.width * 0.05,
-                                        height: geometry.size.height * 0.05)
-                            
-                            Text("New Symptom")
-                                .font(.system(size: geometry.size.width * 0.048))
-                                .fontWeight(.bold)
-                        }
-                        .padding()
-                        .foregroundColor(Color(.white))
-                        .frame(width: geometry.size.width * 0.5,
-                                height: geometry.size.height * 0.063)
-                        .background(Color(#colorLiteral(red: 0.6043982389, green: 0.6650630815, blue: 0.7846405509, alpha: 1)))
-                            .cornerRadius(10)
-                    }
-                    
-                    Spacer()
-                }
-            }
-        }
-    }
-}
-
-
-struct MentalSymptoms_Previews: PreviewProvider {
-    static var previews: some View {
-        MentalSymptoms()
-    }
-}
