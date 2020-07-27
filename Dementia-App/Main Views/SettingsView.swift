@@ -14,14 +14,18 @@ struct SettingsView: View {
         GeometryReader { geometry in
                 
             VStack() {
-                
-                Text("Settings")
-                    .fontWeight(.bold).font(.largeTitle)
-                
+//                Text("Settings")
+//                    .fontWeight(.bold).font(.largeTitle)
+                NavigationLink(destination: AboutView()){
+                    Text("About")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.leading)
+                    }
+                }
             }
         }
     }
-}
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
