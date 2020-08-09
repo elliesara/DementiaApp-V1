@@ -90,15 +90,15 @@ struct CheckMark: View {
     var body: some View {
         Button(action:
             {
-            self.checkState = !self.checkState
-            print("State : \(self.checkState)")
+            self.checkState.toggle()
+            print("State: \(self.checkState)")
 
 
         }) {
            Rectangle()
                 .fill(self.checkState ? Color.blue : Color(#colorLiteral(red: 0.9592792897, green: 0.9592792897, blue: 0.9592792897, alpha: 1)))
                 .overlay(Rectangle().stroke(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)), lineWidth:2))
-                .frame(width:20, height:20, alignment: .center)
+                .frame(width: 20, height: 20, alignment: .center)
                 .cornerRadius(5)
         }
     }
