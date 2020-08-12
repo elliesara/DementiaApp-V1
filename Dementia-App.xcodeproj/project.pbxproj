@@ -27,7 +27,8 @@
 		0DE3D24324C3D95A0015A31C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24224C3D95A0015A31C /* Assets.xcassets */; };
 		0DE3D24624C3D95A0015A31C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */; };
 		0DE3D24924C3D95A0015A31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */; };
-		23F8FFF424CEBEAD009699A1 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F8FFF324CEBEAD009699A1 /* AboutView.swift */; };
+		23D5CDA324DE006900FFF7E8 /* AccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D5CDA224DE006900FFF7E8 /* AccountInformationView.swift */; };
+		23D5CDA524DE02CC00FFF7E8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D5CDA424DE02CC00FFF7E8 /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +54,8 @@
 		0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0DE3D24824C3D95A0015A31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DE3D24A24C3D95A0015A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23F8FFF324CEBEAD009699A1 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		23D5CDA224DE006900FFF7E8 /* AccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationView.swift; sourceTree = "<group>"; };
+		23D5CDA424DE02CC00FFF7E8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +157,8 @@
 		23F8FFF524CEBEBB009699A1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				23F8FFF324CEBEAD009699A1 /* AboutView.swift */,
+				23D5CDA224DE006900FFF7E8 /* AccountInformationView.swift */,
+				23D5CDA424DE02CC00FFF7E8 /* AboutView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -234,8 +237,8 @@
 				0D62486824C3DA920085C195 /* SettingsView.swift in Sources */,
 				0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */,
 				0D62486F24C3DAD40085C195 /* Mental.swift in Sources */,
+				23D5CDA324DE006900FFF7E8 /* AccountInformationView.swift in Sources */,
 				0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */,
-				23F8FFF424CEBEAD009699A1 /* AboutView.swift in Sources */,
 				0D62487524C3DB570085C195 /* MentalSymptoms.swift in Sources */,
 				0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */,
 				0DE3D23F24C3D9590015A31C /* Dementia_App.xcdatamodeld in Sources */,
@@ -247,6 +250,7 @@
 				0D62487724C3DB6A0085C195 /* SocialSymptoms.swift in Sources */,
 				0D62486D24C3DAC60085C195 /* Physical.swift in Sources */,
 				0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */,
+				23D5CDA524DE02CC00FFF7E8 /* AboutView.swift in Sources */,
 				0D62487324C3DB3E0085C195 /* PhysicalSymptoms.swift in Sources */,
 				0DE3D23C24C3D9590015A31C /* SceneDelegate.swift in Sources */,
 			);
