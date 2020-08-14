@@ -7,18 +7,88 @@
 //
 
 import SwiftUI
-
 struct SettingsView: View {
+    
+    @State private var notifications: Bool = false
     var body: some View {
-        
-        GeometryReader { geometry in
-                
-            VStack() {
-                
-                Text("Settings")
-                    .fontWeight(.bold).font(.largeTitle)
-                
-            }
+        NavigationView{
+            VStack(alignment: .leading) {
+                Group{
+                    HStack{
+                        Text("About")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.leading)
+                        Spacer()
+                            .frame(width: 226)
+                        NavigationLink(destination: AboutView()){
+                            Image(systemName: "arrow.right")
+                        }
+                    }
+                    Spacer()
+                        .frame(height:25)
+                }
+                Group{
+                    HStack{
+                        Text("Font Size")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer()
+                        .frame(height:25)
+                }
+                Group{
+                    Toggle(isOn: self.$notifications){
+                        Text("Notifications")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.leading)
+                    }.frame(width:300)
+                    Spacer()
+                        .frame(height:25)
+                }
+                Group{
+                    HStack{
+                        Text("Account Information")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                        Spacer()
+                            .frame(width:125)
+                        NavigationLink(destination: AccountInfoView()){
+                            Image(systemName: "arrow.right")
+                        }.navigationBarTitle("Settings")
+                    }
+                    Spacer()
+                        .frame(height:25)
+                }
+                Group{
+                    HStack{
+                        Text("Reminders")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer()
+                        .frame(height:25)
+                }
+                Group{
+                    HStack{
+                        Text("Help")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Spacer()
+                        .frame(height:240)
+                }
+                }
         }
     }
 }
