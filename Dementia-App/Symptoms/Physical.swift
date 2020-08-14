@@ -11,6 +11,7 @@ import SwiftUI
 struct Physical: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     @State private var physicalSymptoms = false
     @State private var selfCare: Bool = false
@@ -71,7 +72,7 @@ struct Physical: View {
                             Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                                 Text("Cancel")
                             }, trailing:
-                            NavigationLink(destination: PhysicalSymptoms()) {
+                            NavigationLink(destination: PSymptomsCD()) {
                                 Text("Next")
                             })
                     }

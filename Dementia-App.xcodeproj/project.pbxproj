@@ -20,6 +20,12 @@
 		0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487824C3DB780085C195 /* NewSymptom.swift */; };
 		0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487B24C3DBA50085C195 /* TrackDiet.swift */; };
 		0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487E24C3DBC00085C195 /* Questionaire.swift */; };
+		0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */; };
+		0D9E293E24E63E2700682DAA /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E293D24E63E2700682DAA /* AboutView.swift */; };
+		0D9E294024E63E8000682DAA /* PSymptomsCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E293F24E63E8000682DAA /* PSymptomsCD.swift */; };
+		0D9E294524E6412A00682DAA /* PSymptomEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E294424E6412A00682DAA /* PSymptomEntity.swift */; };
+		0D9E294924E6425400682DAA /* MSymptomEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E294824E6425400682DAA /* MSymptomEntity.swift */; };
+		0D9E294B24E6427F00682DAA /* SSymptomEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E294A24E6427F00682DAA /* SSymptomEntity.swift */; };
 		0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3D23924C3D9590015A31C /* AppDelegate.swift */; };
 		0DE3D23C24C3D9590015A31C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3D23B24C3D9590015A31C /* SceneDelegate.swift */; };
 		0DE3D23F24C3D9590015A31C /* Dementia_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3D23D24C3D9590015A31C /* Dementia_App.xcdatamodeld */; };
@@ -43,6 +49,12 @@
 		0D62487824C3DB780085C195 /* NewSymptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptom.swift; sourceTree = "<group>"; };
 		0D62487B24C3DBA50085C195 /* TrackDiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDiet.swift; sourceTree = "<group>"; };
 		0D62487E24C3DBC00085C195 /* Questionaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questionaire.swift; sourceTree = "<group>"; };
+		0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
+		0D9E293D24E63E2700682DAA /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		0D9E293F24E63E8000682DAA /* PSymptomsCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsCD.swift; sourceTree = "<group>"; };
+		0D9E294424E6412A00682DAA /* PSymptomEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomEntity.swift; sourceTree = "<group>"; };
+		0D9E294824E6425400682DAA /* MSymptomEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSymptomEntity.swift; sourceTree = "<group>"; };
+		0D9E294A24E6427F00682DAA /* SSymptomEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSymptomEntity.swift; sourceTree = "<group>"; };
 		0DE3D23624C3D9590015A31C /* Dementia-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dementia-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE3D23924C3D9590015A31C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE3D23B24C3D9590015A31C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,9 +95,11 @@
 				0D62486E24C3DAD40085C195 /* Mental.swift */,
 				0D62487024C3DB2A0085C195 /* Social.swift */,
 				0D62487224C3DB3E0085C195 /* PhysicalSymptoms.swift */,
+				0D9E293F24E63E8000682DAA /* PSymptomsCD.swift */,
 				0D62487424C3DB570085C195 /* MentalSymptoms.swift */,
 				0D62487624C3DB6A0085C195 /* SocialSymptoms.swift */,
 				0D62487824C3DB780085C195 /* NewSymptom.swift */,
+				0D9E294324E63F7400682DAA /* CoreData */,
 			);
 			path = Symptoms;
 			sourceTree = "<group>";
@@ -104,6 +118,26 @@
 				0D62487E24C3DBC00085C195 /* Questionaire.swift */,
 			);
 			path = "Brain Train";
+			sourceTree = "<group>";
+		};
+		0D9E293A24E63DE600682DAA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */,
+				0D9E293D24E63E2700682DAA /* AboutView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0D9E294324E63F7400682DAA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0D9E294424E6412A00682DAA /* PSymptomEntity.swift */,
+				0D9E294824E6425400682DAA /* MSymptomEntity.swift */,
+				0D9E294A24E6427F00682DAA /* SSymptomEntity.swift */,
+				0DE3D23D24C3D9590015A31C /* Dementia_App.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		0DE3D22D24C3D9590015A31C = {
@@ -129,13 +163,13 @@
 				0DE3D23B24C3D9590015A31C /* SceneDelegate.swift */,
 				0DE3D24024C3D9590015A31C /* ContentView.swift */,
 				0D62486224C3DA430085C195 /* Main Views */,
+				0D9E293A24E63DE600682DAA /* Settings */,
 				0D62486924C3DAA00085C195 /* Symptoms */,
 				0D62487A24C3DB970085C195 /* Diet */,
 				0D62487D24C3DBB30085C195 /* Brain Train */,
 				0DE3D24224C3D95A0015A31C /* Assets.xcassets */,
 				0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */,
 				0DE3D24A24C3D95A0015A31C /* Info.plist */,
-				0DE3D23D24C3D9590015A31C /* Dementia_App.xcdatamodeld */,
 				0DE3D24424C3D95A0015A31C /* Preview Content */,
 			);
 			path = "Dementia-App";
@@ -229,14 +263,20 @@
 				0DE3D23F24C3D9590015A31C /* Dementia_App.xcdatamodeld in Sources */,
 				0DE3D24124C3D9590015A31C /* ContentView.swift in Sources */,
 				0D62486424C3DA600085C195 /* HomeView.swift in Sources */,
+				0D9E294B24E6427F00682DAA /* SSymptomEntity.swift in Sources */,
 				0D62487124C3DB2A0085C195 /* Social.swift in Sources */,
 				0D62486624C3DA800085C195 /* ReportsView.swift in Sources */,
 				0D62486B24C3DAB50085C195 /* BigCategories.swift in Sources */,
 				0D62487724C3DB6A0085C195 /* SocialSymptoms.swift in Sources */,
 				0D62486D24C3DAC60085C195 /* Physical.swift in Sources */,
+				0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */,
 				0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */,
+				0D9E294924E6425400682DAA /* MSymptomEntity.swift in Sources */,
+				0D9E294524E6412A00682DAA /* PSymptomEntity.swift in Sources */,
+				0D9E293E24E63E2700682DAA /* AboutView.swift in Sources */,
 				0D62487324C3DB3E0085C195 /* PhysicalSymptoms.swift in Sources */,
 				0DE3D23C24C3D9590015A31C /* SceneDelegate.swift in Sources */,
+				0D9E294024E63E8000682DAA /* PSymptomsCD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
