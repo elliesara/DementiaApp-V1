@@ -12,7 +12,7 @@ struct Physical: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-//    @State private var physicalSymptoms = false
+    @State private var physicalSymptoms = false
     @State private var selfCare: Bool = false
     @State private var disturbedSleep: Bool = false
     @State private var impairedMobility: Bool = false
