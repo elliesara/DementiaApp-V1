@@ -16,7 +16,7 @@ struct TrackDiet: View {
         NavigationView {
             
             ZStack {
-            
+                
                 Color(#colorLiteral(red: 0.6994891574, green: 0.8870300651, blue: 0.6273006809, alpha: 1)).edgesIgnoringSafeArea(.all)
                 
                 VStack {
@@ -62,15 +62,19 @@ struct CheckMark: View {
     var body: some View {
         Button(action:
             {
-            self.checkState = !self.checkState
-            print("State : \(self.checkState)")
-
+                self.checkState = !self.checkState
+                print("State: \(self.checkState)")
+                
         }) {
-           Rectangle()
-                .fill(self.checkState ? Color(#colorLiteral(red: 0.5909615549, green: 0.5909615549, blue: 0.5909615549, alpha: 1)) : Color(#colorLiteral(red: 0.9592792897, green: 0.9592792897, blue: 0.9592792897, alpha: 1)))
-                .overlay(Rectangle().stroke(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)), lineWidth:2))
-                .frame(width:20, height:20, alignment: .center)
-                .cornerRadius(5)
+            if self.checkState {
+                Image(systemName: "checkmark.square.fill")
+                    .foregroundColor(Color.blue)
+                    .font(.system(size: UIScreen.main.bounds.width*0.06))
+            } else {
+                Image(systemName: "square.fill")
+                    .foregroundColor(Color.white)
+                    .font(.system(size: UIScreen.main.bounds.width*0.06))
+            }
         }
     }
 }

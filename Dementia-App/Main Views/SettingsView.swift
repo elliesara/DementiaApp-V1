@@ -88,7 +88,9 @@ struct SettingsView: View {
                     Spacer()
                         .frame(height:240)
                 }
-                }
+            }
+        }.onAppear() {
+            CoreDataManager.shared.whereIsMySQLite()
         }
     }
 }

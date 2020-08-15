@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="MSymptomEntity" representedClassName=".MSymptomEntity" syncable="YES">
         <attribute name="mCheckedState" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="mCreatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -16,8 +16,8 @@
         <attribute name="sSymptomName" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="MSymptomEntity" positionX="-18" positionY="63" width="128" height="88"/>
         <element name="PSymptomEntity" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="SSymptomEntity" positionX="-36" positionY="45" width="128" height="88"/>
-        <element name="MSymptomEntity" positionX="-18" positionY="63" width="128" height="88"/>
     </elements>
 </model>

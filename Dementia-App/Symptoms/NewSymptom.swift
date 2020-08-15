@@ -38,7 +38,7 @@ struct NewSymptom: View {
             HStack {
                 TextField("Enter new symptom name", text: $newSymptom)
                     .textFieldStyle(CustomTextFieldStyle())
-                    .frame(width: UIScreen.main.bounds.width*0.7)
+                    .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.02)
                 
                 Button(action: { self.addSymptom = true }) {
                     HStack(alignment: .center) {
@@ -49,7 +49,7 @@ struct NewSymptom: View {
                     }
                     .foregroundColor(Color.white)
                     .frame(width: UIScreen.main.bounds.width*0.1, height: UIScreen.main.bounds.height*0.045)
-                    .background(Color(#colorLiteral(red: 0.5045029521, green: 0.7307170033, blue: 0.8366141915, alpha: 1)))
+                    .background(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
                     .cornerRadius(8)
                 }
             }

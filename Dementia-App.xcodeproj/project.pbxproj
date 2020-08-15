@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D31529E24E8930D0090886F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31529D24E8930D0090886F /* CoreDataManager.swift */; };
 		0D62486424C3DA600085C195 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486324C3DA600085C195 /* HomeView.swift */; };
 		0D62486624C3DA800085C195 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486524C3DA800085C195 /* ReportsView.swift */; };
 		0D62486824C3DA920085C195 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486724C3DA920085C195 /* SettingsView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D31529D24E8930D0090886F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0D62486324C3DA600085C195 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0D62486524C3DA800085C195 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		0D62486724C3DA920085C195 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		0D9E294324E63F7400682DAA /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				0D31529D24E8930D0090886F /* CoreDataManager.swift */,
 				0D9E294424E6412A00682DAA /* PSymptomEntity.swift */,
 				0D9E294824E6425400682DAA /* MSymptomEntity.swift */,
 				0D9E294A24E6427F00682DAA /* SSymptomEntity.swift */,
@@ -260,6 +263,7 @@
 				0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */,
 				0D62487524C3DB570085C195 /* MentalSymptoms.swift in Sources */,
 				0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */,
+				0D31529E24E8930D0090886F /* CoreDataManager.swift in Sources */,
 				0DE3D23F24C3D9590015A31C /* Dementia_App.xcdatamodeld in Sources */,
 				0DE3D24124C3D9590015A31C /* ContentView.swift in Sources */,
 				0D62486424C3DA600085C195 /* HomeView.swift in Sources */,
