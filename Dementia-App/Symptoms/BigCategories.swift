@@ -10,20 +10,19 @@ import SwiftUI
 
 struct BigCategories: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State private var physical = false
     @State private var mental = false
     @State private var social = false
     
     var body: some View {
         GeometryReader { geometry in
-
+            
             VStack(alignment: .leading) {
-
                 
-            /// Physical
-
                 Button(action: { self.physical = true }) {
-
+                    
                     HStack {
                         Text("Physical")
                             .font(.system(size: geometry.size.width*0.07))
@@ -36,7 +35,7 @@ struct BigCategories: View {
                             .scaledToFit()
                             .frame(width: geometry.size.width*0.2, height: geometry.size.height*0.105)
                             .padding(.leading)
-
+                        
                         Spacer()
                     }
                     .padding()
@@ -44,16 +43,13 @@ struct BigCategories: View {
                     .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.23)
                     .background(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
                     .cornerRadius(25)
-
+                    
                 }.sheet(isPresented: self.$physical) {
-                    Physical()
+                    Physical().environment(\.managedObjectContext, self.managedObjectContext)
                 }.padding(.top)
-
-                
-            /// Mental
                 
                 Button(action: { self.mental = true }) {
-
+                    
                     HStack {
                         Text("Mental")
                             .font(.system(size: geometry.size.width*0.07))
@@ -74,16 +70,13 @@ struct BigCategories: View {
                     .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.23)
                     .background(Color(#colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)))
                     .cornerRadius(25)
-
+                    
                 }.sheet(isPresented: self.$mental) {
                     Mental()
                 }
                 
-                
-            /// Social
-                
                 Button(action: { self.social = true }) {
-
+                    
                     HStack {
                         Text("Social")
                             .font(.system(size: geometry.size.width*0.07))
@@ -104,13 +97,13 @@ struct BigCategories: View {
                     .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.23)
                     .background(Color(#colorLiteral(red: 0.9529411765, green: 0.8804875016, blue: 0.7963053584, alpha: 1)))
                     .cornerRadius(25)
-
+                    
                 }.sheet(isPresented: self.$social) {
                     Social()
                 }
                 
                 Spacer()
-
+                
             }.navigationBarTitle(Text("Symptom Categories"))
             
         }

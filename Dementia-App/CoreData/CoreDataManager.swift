@@ -16,9 +16,9 @@ final class CoreDataManager {
     public lazy var symptomContext = persistentContainer.viewContext
     
     private lazy var persistentContainer: NSPersistentContainer = {
-
-        let container = NSPersistentContainer(name: "Dementia_App")
-
+        
+        let container = NSPersistentContainer(name: "Dementia-App")
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -26,16 +26,16 @@ final class CoreDataManager {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         let context = persistentContainer.viewContext
-        print("save context")
-        if !context.hasChanges {
+        print("<<Inside saveContext>>")
+        if context.hasChanges {
             do {
                 try context.save()
-                print("save successful!")
+                print("<<Saved successfully!>>")
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -43,6 +43,29 @@ final class CoreDataManager {
         }
     }
     
+    /// A generic delete function for any managed object entity
+    func deleteAllObjects<T: NSManagedObject>(_ objectType : T.Type) -> Void {
+        
+        let genericEntityName = String(describing: objectType)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: genericEntityName)
+        
+        let result = try? symptomContext.fetch(fetchRequest)
+        let resultData = result as! [T]
+        
+        for object in resultData {
+            symptomContext.delete(object)
+        }
+        
+        do {
+            try symptomContext.save()
+            print("Deleted \(String(describing: [T].self))!")
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+    }
+    
+    /// prints where Core Data database is located on local disk
     func whereIsMySQLite() {
         let path = FileManager
             .default
@@ -53,7 +76,7 @@ final class CoreDataManager {
             .removingPercentEncoding
         print(path ?? "Not found")
     }
-
+    
 }
 
 

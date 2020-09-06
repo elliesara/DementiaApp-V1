@@ -9,8 +9,18 @@
 import SwiftUI
 
 struct ReportsView: View {
+    
+    @FetchRequest(fetchRequest: PSymptomEntity.getPSymptoms()) var physicalSymptoms: FetchedResults<PSymptomEntity>
+    
     var body: some View {
-        Text("See Your Reports").fontWeight(.bold).font(.largeTitle)
+        VStack {
+            Text("Reports")
+            Button("Reset data") {
+                CoreDataManager.shared.deleteAllObjects(PSymptomEntity.self)
+            }
+        }.onAppear() {
+            CoreDataManager.shared.whereIsMySQLite()
+        }
     }
 }
 

@@ -16,13 +16,13 @@ public class MSymptomEntity: NSManagedObject, Identifiable {
 }
 
 extension MSymptomEntity {
-    static func getSymptomTrackers() -> NSFetchRequest<MSymptomEntity> {
+    static func getMSymptoms() -> NSFetchRequest<MSymptomEntity> {
         let request: NSFetchRequest<MSymptomEntity> = MSymptomEntity.fetchRequest() as! NSFetchRequest<MSymptomEntity>
         
         let sortDescriptor  = NSSortDescriptor(key: "mSymptomName", ascending: true)
-        
+
         request.sortDescriptors = [sortDescriptor]
-        
+
         return request
     }
 }
