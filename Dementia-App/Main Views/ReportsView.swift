@@ -9,8 +9,44 @@
 import SwiftUI
 
 struct ReportsView: View {
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: PSymptomEntity.getPSymptoms()) var physicalSymptoms: FetchedResults<PSymptomEntity>
+    @State private var expand = false
+    
     var body: some View {
-        Text("See Your Reports").fontWeight(.bold).font(.largeTitle)
+        
+        NavigationView {
+            
+            ScrollView {
+                
+                VStack(alignment: .leading) {
+                    
+                    Text("Your Physical Symptoms").font(.system(size: UIScreen.main.bounds.height*0.03)).fontWeight(.semibold).padding(.bottom)
+                    
+                    Button(action: { self.expand.toggle() }) {
+                        HStack {
+                            Text("Self-Care Deficit")
+                            Image(systemName: expand ? "chevron.up" : "chevron.down")
+                        }
+                    }
+                    
+                    if expand {
+                        ForEach(physicalSymptoms) { pSymptom in
+                            PSymptomView(pSymptomName: pSymptom.pSymptomName, pCreatedAt:  "\(pSymptom.pCreatedAt.shortMedium)")
+                        }
+                    }
+                    
+                    Button("Reset data") {
+                        CoreDataManager.shared.deleteAllObjects(PSymptomEntity.self)
+                    }
+                    
+                    }.navigationBarTitle("Reports").padding()
+                    .onAppear() {
+                        CoreDataManager.shared.whereIsMySQLite()
+                }
+            }
+        }
     }
 }
 

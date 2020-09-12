@@ -39,7 +39,7 @@ struct HomeView: View {
                         }
                         .padding()
                         .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.19)
+                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.25)
                         .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
                         .cornerRadius(25)
                         
@@ -65,7 +65,7 @@ struct HomeView: View {
                         }
                         .padding()
                         .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.19)
+                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.25)
                         .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
                         .cornerRadius(25)
                         
@@ -74,54 +74,54 @@ struct HomeView: View {
                 /// Brain Train
                     
                     NavigationLink(destination: Questionare()) {
-                        
+
                         HStack {
                             Image(systemName: "heart")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geometry.size.width*0.1, height: geometry.size.height*0.105)
                                 .padding(.leading)
-                            
+
                             Text("Start Today's Brain Train")
                                 .font(.system(size: geometry.size.width*0.055))
                                 .fontWeight(.bold)
                                 .padding()
-                            
+
                             Spacer()
                         }
                         .padding()
                         .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.19)
+                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.25)
                         .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
                         .cornerRadius(25)
-                        
+
                     }
                     
                 /// Reports
                     
-                    NavigationLink(destination: ReportsView()) {
-                        
-                        HStack {
-                            Image(systemName: "doc.on.clipboard")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geometry.size.width*0.1, height: geometry.size.height*0.105)
-                                .padding(.leading)
-                            
-                            Text("See Your Reports")
-                            .font(.system(size: geometry.size.width*0.055))
-                            .fontWeight(.bold)
-                            .padding()
-                            
-                            Spacer()
-                        }
-                        .padding()
-                        .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.19)
-                        .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
-                        .cornerRadius(25)
-                        
-                    }
+//                    NavigationLink(destination: ReportsView()) {
+//
+//                        HStack {
+//                            Image(systemName: "doc.on.clipboard")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: geometry.size.width*0.1, height: geometry.size.height*0.105)
+//                                .padding(.leading)
+//
+//                            Text("See Your Reports")
+//                            .font(.system(size: geometry.size.width*0.055))
+//                            .fontWeight(.bold)
+//                            .padding()
+//
+//                            Spacer()
+//                        }
+//                        .padding()
+//                        .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
+//                        .frame(width: geometry.size.width*0.9, height: geometry.size.height*0.19)
+//                        .background(Color(#colorLiteral(red: 0.9577553868, green: 0.9579156041, blue: 0.9577342868, alpha: 1)))
+//                        .cornerRadius(25)
+//
+//                    }
                     
                     Spacer()
                     
