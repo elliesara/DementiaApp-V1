@@ -23,6 +23,7 @@
 		0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487B24C3DBA50085C195 /* TrackDiet.swift */; };
 		0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487E24C3DBC00085C195 /* Questionaire.swift */; };
 		0D71A568250439600072CF61 /* Dementia-App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D71A566250439600072CF61 /* Dementia-App.xcdatamodeld */; };
+		0D755C7D250C8AE100306BE7 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D755C7C250C8AE100306BE7 /* DateHelper.swift */; };
 		0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */; };
 		0D9E293E24E63E2700682DAA /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E293D24E63E2700682DAA /* AboutView.swift */; };
 		0D9E294524E6412A00682DAA /* PSymptomEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E294424E6412A00682DAA /* PSymptomEntity.swift */; };
@@ -53,6 +54,7 @@
 		0D62487B24C3DBA50085C195 /* TrackDiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDiet.swift; sourceTree = "<group>"; };
 		0D62487E24C3DBC00085C195 /* Questionaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questionaire.swift; sourceTree = "<group>"; };
 		0D71A567250439600072CF61 /* Dementia-App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dementia-App.xcdatamodel"; sourceTree = "<group>"; };
+		0D755C7C250C8AE100306BE7 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		0D9E293D24E63E2700682DAA /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		0D9E294424E6412A00682DAA /* PSymptomEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomEntity.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				0D9E294424E6412A00682DAA /* PSymptomEntity.swift */,
 				0D9E294824E6425400682DAA /* MSymptomEntity.swift */,
 				0D9E294A24E6427F00682DAA /* SSymptomEntity.swift */,
+				0D755C7C250C8AE100306BE7 /* DateHelper.swift */,
 				0D71A566250439600072CF61 /* Dementia-App.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D755C7D250C8AE100306BE7 /* DateHelper.swift in Sources */,
 				0D62486824C3DA920085C195 /* SettingsView.swift in Sources */,
 				0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */,
 				0D71A568250439600072CF61 /* Dementia-App.xcdatamodeld in Sources */,

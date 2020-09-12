@@ -1,9 +1,9 @@
 //
-//  ToDoItemView.swift
+//  PSymptomView.swift
 //  CoreDataToDo
 //
-//  Created by Ellie Huang on 6/20/20.
-//  Copyright © 2020 Ellie Huang. All rights reserved.
+//  Created by Ellie Huang on 9/2/20.
+//  Copyright © 2020 Neuroscience Amador Valley. All rights reserved.
 //
 
 import SwiftUI
@@ -16,19 +16,8 @@ struct PSymptomView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text(pSymptomName).font(.headline)
-                Text(pCreatedAt).font(.caption)
-                Button("Save PSymptoms") {
-                    let pSymptom = PSymptomEntity(context: self.managedObjectContext)
-                    pSymptom.pSymptomName = self.pSymptomName
-                    pSymptom.pCreatedAt = Date()
-                    pSymptom.pCheckedState = false
-                    CoreDataManager.shared.saveContext()
-                    
-                    CoreDataManager.shared.whereIsMySQLite()
-                }
-            }
+            Text(pSymptomName).font(.headline).padding(.bottom)
+            Text(pCreatedAt).font(.caption).padding(.bottom)
         }
     }
 }
