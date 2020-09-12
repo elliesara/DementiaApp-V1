@@ -27,7 +27,6 @@ struct AboutView: View {
             
             Spacer().frame(height:500)
         }
-            
     }
 }
 

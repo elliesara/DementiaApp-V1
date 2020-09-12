@@ -38,6 +38,8 @@
 		0DE3D24324C3D95A0015A31C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24224C3D95A0015A31C /* Assets.xcassets */; };
 		0DE3D24624C3D95A0015A31C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */; };
 		0DE3D24924C3D95A0015A31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */; };
+		23D5CDA324DE006900FFF7E8 /* AccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D5CDA224DE006900FFF7E8 /* AccountInformationView.swift */; };
+		23D5CDA524DE02CC00FFF7E8 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D5CDA424DE02CC00FFF7E8 /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0DE3D24824C3D95A0015A31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DE3D24A24C3D95A0015A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23D5CDA224DE006900FFF7E8 /* AccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationView.swift; sourceTree = "<group>"; };
+		23D5CDA424DE02CC00FFF7E8 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 				0D62486324C3DA600085C195 /* HomeView.swift */,
 				0D62486524C3DA800085C195 /* ReportsView.swift */,
 				0D62486724C3DA920085C195 /* SettingsView.swift */,
+				23F8FFF524CEBEBB009699A1 /* Settings */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -190,6 +195,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		23F8FFF524CEBEBB009699A1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				23D5CDA224DE006900FFF7E8 /* AccountInformationView.swift */,
+				23D5CDA424DE02CC00FFF7E8 /* AboutView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +279,7 @@
 				0D62486824C3DA920085C195 /* SettingsView.swift in Sources */,
 				0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */,
 				0D62486F24C3DAD40085C195 /* Mental.swift in Sources */,
+				23D5CDA324DE006900FFF7E8 /* AccountInformationView.swift in Sources */,
 				0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */,
 				0D62487524C3DB570085C195 /* MentalSymptoms.swift in Sources */,
 				0D4C9A5E24CA821E004E1FF9 /* MSubCategories.swift in Sources */,
