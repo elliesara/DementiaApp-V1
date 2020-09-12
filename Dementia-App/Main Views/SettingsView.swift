@@ -11,9 +11,9 @@ struct SettingsView: View {
     
     @State private var notifications: Bool = false
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack(alignment: .leading) {
-                Group{
+                Group {
                     HStack{
                         Text("About")
                             .font(.subheadline)
@@ -29,7 +29,7 @@ struct SettingsView: View {
                     Spacer()
                         .frame(height:25)
                 }
-                Group{
+                Group {
                     HStack{
                         Text("Font Size")
                             .font(.subheadline)
@@ -51,7 +51,7 @@ struct SettingsView: View {
                     Spacer()
                         .frame(height:25)
                 }
-                Group{
+                Group {
                     HStack{
                         Text("Account Information")
                             .font(.subheadline)
@@ -59,14 +59,14 @@ struct SettingsView: View {
                             .foregroundColor(Color.black)
                         Spacer()
                             .frame(width:125)
-                        NavigationLink(destination: AccountInformationView()){
+                        NavigationLink(destination: AccountInfoView()){
                             Image(systemName: "arrow.right")
-                        }.navigationBarTitle("Settings")
+                        }
                     }
                     Spacer()
                         .frame(height:25)
                 }
-                Group{
+                Group {
                     HStack{
                         Text("Reminders")
                             .font(.subheadline)
@@ -77,7 +77,7 @@ struct SettingsView: View {
                     Spacer()
                         .frame(height:25)
                 }
-                Group{
+                Group {
                     HStack{
                         Text("Help")
                             .font(.subheadline)
@@ -88,7 +88,7 @@ struct SettingsView: View {
                     Spacer()
                         .frame(height:240)
                 }
-                }
+            }.navigationBarTitle("Settings")
         }
     }
 }

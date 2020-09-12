@@ -1,5 +1,5 @@
 //
-//  PSymptoms.swift
+//  PSymptomEntity.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/23/20.
@@ -9,20 +9,17 @@
 import Foundation
 import CoreData
 
-public class PSymptoms: NSManagedObject, Identifiable {
-    @NSManaged public var pCheckState: Bool
-    @NSManaged public var pCreatedAt: Date
+public class PSymptomEntity: NSManagedObject, Identifiable {
     @NSManaged public var pSymptomName: String
+    @NSManaged public var pCheckedState: Bool
+    @NSManaged public var pCreatedAt: Date
 }
 
-extension PSymptoms {
-    static func getSymptomTrackers() -> NSFetchRequest<PSymptoms> {
-        let request: NSFetchRequest<PSymptoms> = PSymptoms.fetchRequest() as! NSFetchRequest<PSymptoms>
-        
+extension PSymptomEntity {
+    static func getPSymptoms() -> NSFetchRequest<PSymptomEntity> {
+        let request: NSFetchRequest<PSymptomEntity> = PSymptomEntity.fetchRequest() as! NSFetchRequest<PSymptomEntity>
         let sortDescriptor  = NSSortDescriptor(key: "pSymptomName", ascending: true)
-        
         request.sortDescriptors = [sortDescriptor]
-        
         return request
     }
 }

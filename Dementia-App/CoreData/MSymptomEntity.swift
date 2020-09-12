@@ -1,5 +1,5 @@
 //
-//  MSymptoms.swift
+//  MSymptomEntity.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/23/20.
@@ -9,18 +9,20 @@
 import Foundation
 import CoreData
 
-public class MSymptoms: NSManagedObject, Identifiable {
+public class MSymptomEntity: NSManagedObject, Identifiable {
+    @NSManaged public var mCheckedState: Bool
+    @NSManaged public var mCreatedAt: Date
     @NSManaged public var mSymptomName: String
 }
 
-extension MSymptoms {
-    static func getSymptomTrackers() -> NSFetchRequest<MSymptoms> {
-        let request: NSFetchRequest<MSymptoms> = MSymptoms.fetchRequest() as! NSFetchRequest<MSymptoms>
+extension MSymptomEntity {
+    static func getMSymptoms() -> NSFetchRequest<MSymptomEntity> {
+        let request: NSFetchRequest<MSymptomEntity> = MSymptomEntity.fetchRequest() as! NSFetchRequest<MSymptomEntity>
         
         let sortDescriptor  = NSSortDescriptor(key: "mSymptomName", ascending: true)
-        
+
         request.sortDescriptors = [sortDescriptor]
-        
+
         return request
     }
 }
