@@ -1,5 +1,5 @@
 //
-//  BigCategories.swift
+//  BigCategoriesView.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/10/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct BigCategories: View {
+struct BigCategoriesView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
@@ -45,7 +45,7 @@ struct BigCategories: View {
                     .cornerRadius(25)
                     
                 }.sheet(isPresented: self.$physical) {
-                    Physical().environment(\.managedObjectContext, self.managedObjectContext)
+                    PhysicalView().environment(\.managedObjectContext, self.managedObjectContext)
                 }.padding(.top)
                 
                 Button(action: { self.mental = true }) {
@@ -72,7 +72,7 @@ struct BigCategories: View {
                     .cornerRadius(25)
                     
                 }.sheet(isPresented: self.$mental) {
-                    Mental()
+                    MentalView().environment(\.managedObjectContext, self.managedObjectContext)
                 }
                 
                 Button(action: { self.social = true }) {
@@ -99,7 +99,7 @@ struct BigCategories: View {
                     .cornerRadius(25)
                     
                 }.sheet(isPresented: self.$social) {
-                    Social()
+                    SocialView()
                 }
                 
                 Spacer()
@@ -112,8 +112,8 @@ struct BigCategories: View {
     
 }
 
-struct BigCategories_Previews: PreviewProvider {
+struct BigCategoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        BigCategories()
+        BigCategoriesView()
     }
 }

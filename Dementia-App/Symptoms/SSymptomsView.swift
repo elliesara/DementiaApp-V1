@@ -1,5 +1,5 @@
 //
-//  SocialSymptoms.swift
+//  SSymptomsView.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/10/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SocialSymptoms: View {
+struct SSymptomsView: View {
     
         @Environment(\.presentationMode) var presentation
         @State private var newSymptom: Bool = false
@@ -89,8 +89,8 @@ struct SocialSymptoms: View {
     }
 }
 
-struct SocialSymptoms_Previews: PreviewProvider {
+struct SSymptomsView_Previews: PreviewProvider {
     static var previews: some View {
-        SocialSymptoms()
+        SSymptomsView()
     }
 }

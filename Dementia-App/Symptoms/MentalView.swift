@@ -1,5 +1,5 @@
 //
-//  Mental.swift
+//  MentalView.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/10/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Mental: View {
+struct MentalView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -60,7 +60,7 @@ struct Mental: View {
                         Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                             Text("Cancel")
                         }, trailing:
-                        NavigationLink(destination: MentalSymptoms()) {
+                        NavigationLink(destination: MSymptomsView()) {
                             Text("Next")
                         })
                 }
@@ -69,9 +69,9 @@ struct Mental: View {
     }
 }
 
-struct Mental_Previews: PreviewProvider {
+struct MentalView_Previews: PreviewProvider {
     static var previews: some View {
-        Mental()
+        MentalView()
     }
 }
 

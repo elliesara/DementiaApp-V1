@@ -21,7 +21,7 @@ struct HomeView: View {
                 
                 /// Big Categories
                 
-                    NavigationLink(destination: BigCategories()) {
+                    NavigationLink(destination: BigCategoriesView()) {
                         
                         HStack {
                             Image(systemName: "thermometer")

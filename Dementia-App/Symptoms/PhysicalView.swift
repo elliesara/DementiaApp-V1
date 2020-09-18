@@ -1,5 +1,5 @@
 //
-//  Physical.swift
+//  PhysicalView.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/10/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Physical: View {
+struct PhysicalView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -71,7 +71,7 @@ struct Physical: View {
                             Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                                 Text("Cancel")
                             }, trailing:
-                            NavigationLink(destination: PhysicalSymptoms()) {
+                            NavigationLink(destination: PSymptomsView()) {
                                 Text("Next")
                             })
                     }
@@ -81,9 +81,9 @@ struct Physical: View {
     }
 }
 
-struct Physical_Previews: PreviewProvider {
+struct PhysicalView_Previews: PreviewProvider {
     static var previews: some View {
-        Physical()
+        PhysicalView()
     }
 }
 

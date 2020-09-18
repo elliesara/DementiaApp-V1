@@ -1,5 +1,5 @@
 //
-//  Social.swift
+//  SocialView.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/10/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Social: View {
+struct SocialView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -63,7 +63,7 @@ struct Social: View {
                         Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                             Text("Cancel")
                         }, trailing:
-                        NavigationLink(destination: SocialSymptoms()) {
+                        NavigationLink(destination: SSymptomsView()) {
                             Text("Next")
                         })
                 }
@@ -72,9 +72,9 @@ struct Social: View {
     }
 }
 
-struct Social_Previews: PreviewProvider {
+struct SocialView_Previews: PreviewProvider {
     static var previews: some View {
-        Social()
+        SocialView()
     }
 }
 

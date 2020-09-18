@@ -9,58 +9,70 @@
 import SwiftUI
 
 struct NewSymptom: View {
-
+    
     @Environment(\.presentationMode) var presentation
-    @State var newSymptom: String = ""
-    @State var addSymptom: Bool = false
-
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @State private var newSymptom: String = ""
+    
+    @State private var newSypmtomArr: [String] = []
+    
     var body: some View {
-
+        
         VStack {
-
+            
             HStack {
-                Spacer()
-
-                Button(action: { self.presentation.wrappedValue.dismiss() }) {
-                    Text("Cancel")
-                }
-            }
-
-            HStack {
-                Text("New Symptom")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, UIScreen.main.bounds.width*0.03)
-                    .padding(.top)
-                Spacer()
-            }
-
-            HStack {
+                
                 TextField("Enter new symptom name", text: $newSymptom)
                     .textFieldStyle(CustomTextFieldStyle())
-                    .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.02)
-
-                Button(action: { self.addSymptom = true }) {
+                    .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.04)
+                
+                Button(action: {
+                    
+                    self.newSypmtomArr.append(self.newSymptom)
+                    self.newSymptom = ""
+                    
+                }) {
+                    
                     HStack(alignment: .center) {
                         Image(systemName: "plus")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width*0.05, height: UIScreen.main.bounds.height*0.03)
+                            .frame(width: UIScreen.main.bounds.width*0.1, height: UIScreen.main.bounds.height*0.02)
                     }
                     .foregroundColor(Color.white)
-                    .frame(width: UIScreen.main.bounds.width*0.1, height: UIScreen.main.bounds.height*0.045)
+                    .frame(width: UIScreen.main.bounds.width*0.15, height: UIScreen.main.bounds.height*0.037)
                     .background(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
-                    .cornerRadius(8)
+                    
+                }
+                .cornerRadius(8)
+                .frame(width: UIScreen.main.bounds.width*0.15, height: UIScreen.main.bounds.height*0.037)
+                
+            }
+            
+            List {
+                ForEach(0..<self.newSypmtomArr.count, id:\.self) {
+                    Text(self.newSypmtomArr[$0])
                 }
             }
-
+            
             Spacer()
-
-        }.padding()
-        .navigationBarItems(trailing:
-            Button(action: { self.presentation.wrappedValue.dismiss() }) {
-                Text("Submit")
-        })
+            
+        }
+        .padding()
+        .navigationBarTitle("Add New Symptom")
+        .navigationBarItems(leading:
+            
+            Button("Cancel") {
+                self.presentation.wrappedValue.dismiss()
+            }, trailing:
+            
+            Button("Done") {
+                self.presentation.wrappedValue.dismiss()
+                
+            }
+            
+        )
+        
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  PhysicalSymptoms.swift
+//  PSymptomsView.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/10/20.
@@ -7,13 +7,14 @@
 //
 import SwiftUI
 
-struct PhysicalSymptoms: View {
-
+struct PSymptomsView: View {
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentation
     @State private var newSymptom: Bool = false
+    @State private var newSymptomName: String = ""
     
-    private let pSymptoms = ["Having an unkempt appearance",
+    private var pSymptoms = ["Having an unkempt appearance",
                              "Inability to wash body",
                              "Difficulty choosing clothing",
                              "Difficulty brushing teeth",
@@ -45,6 +46,7 @@ struct PhysicalSymptoms: View {
                         .padding(.top, geometry.size.height*0.013)
                     
                     List {
+//                        addANewSymptom()
                         ForEach(0..<self.pChecks.count) { i in
                             HStack {
                                 Text(self.pSymptoms[i])
@@ -66,40 +68,49 @@ struct PhysicalSymptoms: View {
                             }
                         }
                         
+                        if self.newSymptom {
+                            TextField("Enter new symptom name", text: self.$newSymptomName)
+                        }
+                        
                     }
                     .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                     .listRowBackground(Color.blue)
                     .frame(width: UIScreen.main.bounds.width*0.9)
                     
-                    Button(action: { self.newSymptom = true }) {
+                    Button(action: {
+                        self.newSymptom = true
+                    }) {
                         
                         HStack(alignment: .center) {
                             Image(systemName: "plus")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geometry.size.width*0.05, height: geometry.size.height*0.05)
-                            
+                                .frame(width: geometry.size.width * 0.05,
+                                       height: geometry.size.height * 0.05)
+
                             Text("New Symptom")
-                                .font(.system(size: geometry.size.width*0.048))
+                                .font(.system(size: geometry.size.width * 0.048))
                                 .fontWeight(.bold)
                         }
                         .padding()
-                        .foregroundColor(Color.white)
-                        .frame(width: geometry.size.width*0.5, height: geometry.size.height*0.063)
-                            .background(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
+                        .foregroundColor(Color(.white))
+                        .frame(width: geometry.size.width * 0.5,
+                               height: geometry.size.height * 0.063)
+                            .background(Color.blue)
                             .cornerRadius(10)
-                        
-                    }.sheet(isPresented: self.$newSymptom) {
-                        NewSymptom()
+
                     }
-                    
+//                    .sheet(isPresented: self.$newSymptom) {
+//                        NewSymptom()
+//                    }
+
                     Spacer()
-                    
                 }
-                .navigationBarItems(trailing:
-                    Button("Submit") { self.submitButton() }
-                )
+                
             }
+            .navigationBarItems(trailing:
+                Button("Submit") { self.submitButton() }
+            )
         }
     }
     
@@ -115,10 +126,21 @@ struct PhysicalSymptoms: View {
             }
         }
     }
+    
+    
+    mutating func addANewSymptom() {
+        if self.newSymptom {
+            TextField("Enter new symptom name", text: self.$newSymptomName)
+            self.pChecks.append(true)
+            pSymptoms.append(newSymptomName)
+        }
+        newSymptomName = ""
+    }
+    
 }
 
-struct PhysicalSymptoms_Previews: PreviewProvider {
+struct PSymptomsView_Previews: PreviewProvider {
     static var previews: some View {
-        PhysicalSymptoms()
+        PSymptomsView()
     }
 }
