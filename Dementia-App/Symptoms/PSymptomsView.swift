@@ -10,7 +10,7 @@ import SwiftUI
 struct PSymptomsView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    @Environment(\.presentationMode) var presentation
+    @Environment(\.presentationMode) var presentationMode
     @State private var newSymptom: Bool = false
     @State private var newSymptomName: String = ""
     
@@ -35,82 +35,87 @@ struct PSymptomsView: View {
     var body: some View {
         GeometryReader { geometry in
             
-            ZStack {
-                Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1))
-                    .edgesIgnoringSafeArea(.all)
+            NavigationView {
                 
-                VStack {
+                ZStack {
+                    Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1))
+                        .edgesIgnoringSafeArea(.all)
                     
-                    Text("Physical Symptoms").font(.largeTitle).fontWeight(.bold).foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                    Text("Select all that apply").font(.caption).foregroundColor(Color.blue)
-                        .padding(.top, geometry.size.height*0.013)
-                    
-                    List {
-//                        addANewSymptom()
-                        ForEach(0..<self.pChecks.count) { i in
-                            HStack {
-                                Text(self.pSymptoms[i])
-                                Spacer()
-                                Button(action: {
-                                    self.pChecks[i].toggle()
-                                    print(self.pChecks[i])
-                                }) {
-                                    if self.pChecks[i] {
-                                        Image(systemName: "checkmark.square.fill")
-                                            .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
-                                            .font(.system(size: UIScreen.main.bounds.width*0.06))
-                                    } else {
-                                        Image(systemName: "square.fill")
-                                            .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
-                                            .font(.system(size: UIScreen.main.bounds.width*0.06))
+                    VStack {
+                        
+                        Text("Physical Symptoms").font(.largeTitle).fontWeight(.bold).foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
+                        Text("Select all that apply").font(.caption).foregroundColor(Color.blue)
+                            .padding(.top, geometry.size.height*0.013)
+                        
+                        List {
+//                            addANewSymptom()
+                            ForEach(0..<self.pChecks.count) { i in
+                                HStack {
+                                    Text(self.pSymptoms[i])
+                                    Spacer()
+                                    Button(action: {
+                                        self.pChecks[i].toggle()
+                                        print(self.pChecks[i])
+                                    }) {
+                                        if self.pChecks[i] {
+                                            Image(systemName: "checkmark.square.fill")
+                                                .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
+                                                .font(.system(size: UIScreen.main.bounds.width*0.06))
+                                        } else {
+                                            Image(systemName: "square.fill")
+                                                .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
+                                                .font(.system(size: UIScreen.main.bounds.width*0.06))
+                                        }
                                     }
                                 }
                             }
+                            
+//                            if self.newSymptom {
+//                                TextField("Enter new symptom name", text: self.$newSymptomName)
+//                            }
+                            
+                        }
+                        .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
+                        .listRowBackground(Color.blue)
+                        .frame(width: UIScreen.main.bounds.width*0.9)
+                        
+                        Button(action: {
+                            self.newSymptom = true
+                        }) {
+                            
+                            HStack(alignment: .center) {
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geometry.size.width * 0.05,
+                                           height: geometry.size.height * 0.05)
+                                
+                                Text("New Symptom")
+                                    .font(.system(size: geometry.size.width * 0.048))
+                                    .fontWeight(.bold)
+                            }
+                            .padding()
+                            .foregroundColor(Color(.white))
+                            .frame(width: geometry.size.width * 0.5,
+                                   height: geometry.size.height * 0.063)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                            
+                        }
+                        .sheet(isPresented: self.$newSymptom) {
+                            NewSymptom()
                         }
                         
-                        if self.newSymptom {
-                            TextField("Enter new symptom name", text: self.$newSymptomName)
-                        }
-                        
+                        Spacer()
                     }
-                    .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                    .listRowBackground(Color.blue)
-                    .frame(width: UIScreen.main.bounds.width*0.9)
                     
-                    Button(action: {
-                        self.newSymptom = true
-                    }) {
-                        
-                        HStack(alignment: .center) {
-                            Image(systemName: "plus")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geometry.size.width * 0.05,
-                                       height: geometry.size.height * 0.05)
-
-                            Text("New Symptom")
-                                .font(.system(size: geometry.size.width * 0.048))
-                                .fontWeight(.bold)
-                        }
-                        .padding()
-                        .foregroundColor(Color(.white))
-                        .frame(width: geometry.size.width * 0.5,
-                               height: geometry.size.height * 0.063)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-
-                    }
-//                    .sheet(isPresented: self.$newSymptom) {
-//                        NewSymptom()
-//                    }
-
-                    Spacer()
                 }
+                .navigationBarItems(leading:
+                    Button("Cancel") { self.presentationMode.wrappedValue.dismiss()}, trailing:
+                    Button("Submit") { self.submitButton() }
+                )
                 
             }
-            .navigationBarItems(trailing:
-                Button("Submit") { self.submitButton() }
-            )
         }
     }
     
