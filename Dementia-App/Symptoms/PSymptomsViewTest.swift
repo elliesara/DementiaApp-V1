@@ -1,30 +1,19 @@
 //
-//  PSymptomsView.swift
+//  PSymptomsViewTest.swift
 //  Dementia-App
 //
-//  Created by Ellie Sara Huang on 7/10/20.
+//  Created by Ellie Sara Huang on 9/18/20.
 //  Copyright © 2020 Neuroscience Amador Valley. All rights reserved.
 //
 import SwiftUI
 
-struct PSymptomsView: View {
+struct PSymptomsViewTest: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
+    @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
     @State private var newSymptom: Bool = false
     @State private var newSymptomName: String = ""
-    
-    private var pSymptoms = ["Having an unkempt appearance",
-                             "Inability to wash body",
-                             "Difficulty choosing clothing",
-                             "Difficulty brushing teeth",
-                             "Trouble wearing clothes",
-                             "Inability to sit on toilet",
-                             "Difficulty washing hands",
-                             "Inability to shave/comb hair",
-                             "Convulsions"]
-    
-    @State var pChecks = [false, false, false, false, false, false, false, false, false]
     
     init() {
         UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
@@ -48,15 +37,15 @@ struct PSymptomsView: View {
                             .padding(.top, geometry.size.height*0.013)
                         
                         List {
-                            ForEach(0..<self.pChecks.count) { i in
+                            ForEach(self.pSymptomsList) { pSymptom in
                                 HStack {
-                                    Text(self.pSymptoms[i])
+                                    Text(pSymptom.pNameList)
                                     Spacer()
                                     Button(action: {
-                                        self.pChecks[i].toggle()
-                                        print(self.pChecks[i])
+                                        pSymptom.pStateList.toggle()
+                                        print(pSymptom.pStateList)
                                     }) {
-                                        if self.pChecks[i] {
+                                        if pSymptom.pStateList {
                                             Image(systemName: "checkmark.square.fill")
                                                 .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
                                                 .font(.system(size: UIScreen.main.bounds.width*0.06))
@@ -68,6 +57,11 @@ struct PSymptomsView: View {
                                     }
                                 }
                             }
+                            
+                            if self.newSymptom {
+                                TextField("Enter new symptom name", text: self.$newSymptomName)
+                            }
+                            
                         }
                         .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                         .listRowBackground(Color.blue)
@@ -75,6 +69,7 @@ struct PSymptomsView: View {
                         
                         Button(action: {
                             self.newSymptom = true
+                            self.addANewSymptom()
                         }) {
                             
                             HStack(alignment: .center) {
@@ -96,9 +91,6 @@ struct PSymptomsView: View {
                                 .cornerRadius(10)
                             
                         }
-                        .sheet(isPresented: self.$newSymptom) {
-                            NewSymptom()
-                        }
                         
                         Spacer()
                     }
@@ -114,22 +106,29 @@ struct PSymptomsView: View {
     }
     
     func submitButton() { /// func and var names are lowercase
-        for i in 0..<pChecks.count {
-            print("\(i): \(pChecks[i])")
-            if pChecks[i] == true {
+        for i in 1...pSymptomsList.count {
+            if pSymptomsList[i].pStateList {
                 let pSymptom = PSymptomEntity(context: self.managedObjectContext)
-                pSymptom.pSymptomName = pSymptoms[i]
+                pSymptom.pSymptomName = pSymptomsList[i].pNameList
                 pSymptom.pCreatedAt = Date()
-                pSymptom.pCheckedState = pChecks[i]
+                pSymptom.pCheckedState = pSymptomsList[i].pStateList
                 CoreDataManager.shared.saveContext()
             }
         }
     }
     
+    
+    func addANewSymptom() {
+        let newPSymptom = PSymptomListEntity(context: self.managedObjectContext)
+        newPSymptom.pNameList = newSymptomName
+        newPSymptom.pStateList = false
+        CoreDataManager.shared.saveContext()
+    }
+    
 }
 
-struct PSymptomsView_Previews: PreviewProvider {
+struct PSymptomsViewTest_Previews: PreviewProvider {
     static var previews: some View {
-        PSymptomsView()
+        PSymptomsViewTest()
     }
 }

@@ -11,24 +11,27 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
+        Group {
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house")
+                        Text("Home")
+                }
+                
+                ReportsView()
+                    .tabItem {
+                        Image(systemName: "doc.on.clipboard")
+                        Text("Reports")
+                }
+                
+                SettingsView()
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text("Settings")
+                }
             }
-            
-            ReportsView()
-                .tabItem {
-                    Image(systemName: "doc.on.clipboard")
-                    Text("Reports")
-            }
-            
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings")
-            }
+            MockedData()
         }
     }
 }
