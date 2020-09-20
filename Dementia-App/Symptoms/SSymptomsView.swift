@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SocialSymptoms: View {
+struct SSymptomsView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentation
@@ -117,8 +117,8 @@ struct SocialSymptoms: View {
     
 }
 
-struct SocialSymptoms_Previews: PreviewProvider {
+struct SSymptomsView_Previews: PreviewProvider {
     static var previews: some View {
-        SocialSymptoms()
+        SSymptomsView()
     }
 }
