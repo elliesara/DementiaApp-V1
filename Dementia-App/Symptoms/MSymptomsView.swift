@@ -35,8 +35,7 @@ struct MSymptomsView: View {
             NavigationView {
                 
                 ZStack {
-                    Color(#colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1))
-                        .edgesIgnoringSafeArea(.all)
+                    Color(#colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)).edgesIgnoringSafeArea(.all)
                     
                     VStack() {
                         
@@ -64,7 +63,7 @@ struct MSymptomsView: View {
                                         }
                                     }
                                 }
-                            }
+                            }.listRowBackground(Color(#colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)))
                         }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.9)
                         
                         Button(action: { self.newSymptom = true}) {

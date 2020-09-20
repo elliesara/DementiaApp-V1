@@ -11,7 +11,9 @@ import SwiftUI
 struct ReportsView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var appState: AppState
     @FetchRequest(fetchRequest: PSymptomEntity.getPSymptoms()) var physicalSymptoms: FetchedResults<PSymptomEntity>
+    
     @State private var expand = false
     
     var body: some View {
@@ -38,6 +40,7 @@ struct ReportsView: View {
                     }
                     
                     Button("Reset data") {
+                        appState.reset = .reset
                         CoreDataManager.shared.deleteAllObjects(PSymptomEntity.self)
                         CoreDataManager.shared.deleteAllObjects(PSymptomListEntity.self)
                     }

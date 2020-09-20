@@ -17,7 +17,7 @@ struct HomeView: View {
             
             NavigationView {
                 
-                VStack (alignment: .leading) {
+                VStack {
                 
                 /// Big Categories
                 

@@ -13,6 +13,7 @@ struct PSymptomsViewTest: View {
     @Environment(\.presentationMode) var presentationMode
     @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
     @State private var newSymptom: Bool = false
+    @State private var newSymptomAdded: Bool = false
     @State private var newSymptomName: String = ""
     
     init() {
@@ -27,8 +28,7 @@ struct PSymptomsViewTest: View {
             NavigationView {
                 
                 ZStack {
-                    Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1))
-                        .edgesIgnoringSafeArea(.all)
+                    Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)).edgesIgnoringSafeArea(.all)
                     
                     VStack {
                         
@@ -56,6 +56,7 @@ struct PSymptomsViewTest: View {
                                         }
                                     }
                                 }
+                                .listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
                             }
                             
                             if self.newSymptom {
@@ -64,7 +65,6 @@ struct PSymptomsViewTest: View {
                             
                         }
                         .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                        .listRowBackground(Color.blue)
                         .frame(width: UIScreen.main.bounds.width*0.9)
                         
                         Button(action: {
