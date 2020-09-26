@@ -49,7 +49,7 @@ struct BigCategoriesView: View {
                         
                     }.sheet(isPresented: self.$physical) {
                         //                    PhysicalView().environment(\.managedObjectContext, self.managedObjectContext)
-                        PSymptomsViewTest().environment(\.managedObjectContext, self.managedObjectContext)
+                        PSymptomsView().environment(\.managedObjectContext, self.managedObjectContext)
                     }.padding(.top)
                     
                     Button(action: { self.mental = true }) {
@@ -111,7 +111,7 @@ struct BigCategoriesView: View {
                     
                 }.navigationBarTitle(Text("Symptom Categories"))
                 Spacer()
-            }   // HStack
+            }
         }
         
     }

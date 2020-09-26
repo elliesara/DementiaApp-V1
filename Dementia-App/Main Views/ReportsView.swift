@@ -41,8 +41,6 @@ struct ReportsView: View {
                     
                     Button("Reset data") {
                         appState.reset = .reset
-                        CoreDataManager.shared.deleteAllObjects(PSymptomEntity.self)
-                        CoreDataManager.shared.deleteAllObjects(PSymptomListEntity.self)
                     }
                     
                     }.navigationBarTitle("Reports").padding()

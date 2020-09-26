@@ -39,24 +39,9 @@ struct PSymptomsViewTest: View {
                         List {
                             ForEach(self.pSymptomsList) { pSymptom in
                                 HStack {
-                                    Text(pSymptom.pNameList)
-                                    Spacer()
-                                    Button(action: {
-                                        pSymptom.pStateList.toggle()
-                                        print(pSymptom.pStateList)
-                                    }) {
-                                        if pSymptom.pStateList {
-                                            Image(systemName: "checkmark.square.fill")
-                                                .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
-                                                .font(.system(size: UIScreen.main.bounds.width*0.06))
-                                        } else {
-                                            Image(systemName: "square.fill")
-                                                .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
-                                                .font(.system(size: UIScreen.main.bounds.width*0.06))
-                                        }
-                                    }
-                                }
-                                .listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
+                                    Text(pSymptom.pName)
+                                    PSymptomCell(pSym: pSymptom)
+                                }.listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
                             }
                             
                             if self.newSymptom {
@@ -87,8 +72,8 @@ struct PSymptomsViewTest: View {
                             .foregroundColor(Color(.white))
                             .frame(width: geometry.size.width * 0.5,
                                    height: geometry.size.height * 0.063)
-                                .background(Color.blue)
-                                .cornerRadius(10)
+                            .background(Color.blue)
+                            .cornerRadius(10)
                             
                         }
                         
@@ -97,8 +82,8 @@ struct PSymptomsViewTest: View {
                     
                 }
                 .navigationBarItems(leading:
-                    Button("Cancel") { self.presentationMode.wrappedValue.dismiss()}, trailing:
-                    Button("Submit") { self.submitButton() }
+                                        Button("Cancel") { self.presentationMode.wrappedValue.dismiss()}, trailing:
+                                            Button("Submit") { self.submitButton() }
                 )
                 
             }
@@ -107,24 +92,53 @@ struct PSymptomsViewTest: View {
     
     func submitButton() { /// func and var names are lowercase
         for i in 1...pSymptomsList.count {
-            if pSymptomsList[i].pStateList {
+            if pSymptomsList[i].pState {
                 let pSymptom = PSymptomEntity(context: self.managedObjectContext)
-                pSymptom.pSymptomName = pSymptomsList[i].pNameList
+                pSymptom.pSymptomName = pSymptomsList[i].pName
                 pSymptom.pCreatedAt = Date()
-                pSymptom.pCheckedState = pSymptomsList[i].pStateList
+                pSymptom.pCheckedState = pSymptomsList[i].pState
                 CoreDataManager.shared.saveContext()
             }
         }
     }
     
-    
     func addANewSymptom() {
         let newPSymptom = PSymptomListEntity(context: self.managedObjectContext)
-        newPSymptom.pNameList = newSymptomName
-        newPSymptom.pStateList = false
+        newPSymptom.pName = newSymptomName
+        newPSymptom.pState = false
         CoreDataManager.shared.saveContext()
     }
     
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()  //if desired
+        return true
+    }
+}
+
+struct PSymptomCell: View {
+    
+    var pSym: PSymptomListEntity
+    
+    var body: some View {
+        HStack {
+            Text(pSym.pName)
+            Spacer()
+            Button(action: {
+                pSym.pState.toggle()
+                print(pSym.pState)
+            }) {
+                if pSym.pState {
+                    Image(systemName: "checkmark.square.fill")
+                        .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
+                        .font(.system(size: UIScreen.main.bounds.width*0.06))
+                } else {
+                    Image(systemName: "square.fill")
+                        .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
+                        .font(.system(size: UIScreen.main.bounds.width*0.06))
+                }
+            }
+        }
+    }
 }
 
 struct PSymptomsViewTest_Previews: PreviewProvider {
