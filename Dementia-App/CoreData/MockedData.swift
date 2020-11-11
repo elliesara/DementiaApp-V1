@@ -15,7 +15,7 @@ struct MockedData: View {
     
     var body: some View {
         
-        if appState.reset != .noReset {
+        if appState.reset == .reset {
             
             CoreDataManager.shared.deleteAllObjects(PSymptomEntity.self)
             CoreDataManager.shared.deleteAllObjects(PSymptomListEntity.self)

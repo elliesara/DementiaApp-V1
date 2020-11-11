@@ -11,7 +11,7 @@ import SwiftUI
 
 class AppState: ObservableObject {
     
-    @Published var reset: ResetType = .noReset
+    @Published var reset: ResetType = .reset ///always rest data in app each time simulator opens
     
     enum ResetType {
         case reset, noReset

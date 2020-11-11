@@ -40,7 +40,7 @@ struct SettingsView: View {
                     Spacer()
                         .frame(height:25)
                 }
-                Group{
+                Group {
                     Toggle(isOn: self.$notifications){
                         Text("Notifications")
                             .font(.subheadline)

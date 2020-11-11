@@ -48,7 +48,7 @@ struct BigCategoriesView: View {
                         .cornerRadius(25)
                         
                     }.sheet(isPresented: self.$physical) {
-                        //                    PhysicalView().environment(\.managedObjectContext, self.managedObjectContext)
+//                        PhysicalView().environment(\.managedObjectContext, self.managedObjectContext)
                         PSymptomsView().environment(\.managedObjectContext, self.managedObjectContext)
                     }.padding(.top)
                     
@@ -76,7 +76,7 @@ struct BigCategoriesView: View {
                         .cornerRadius(25)
                         
                     }.sheet(isPresented: self.$mental) {
-                        //                    MentalView().environment(\.managedObjectContext, self.managedObjectContext)
+//                        MentalView().environment(\.managedObjectContext, self.managedObjectContext)
                         MSymptomsView().environment(\.managedObjectContext, self.managedObjectContext)
                     }
                     

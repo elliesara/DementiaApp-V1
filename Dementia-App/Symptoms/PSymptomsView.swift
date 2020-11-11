@@ -43,7 +43,7 @@ struct PSymptomsView: View {
                                     Spacer()
                                     Button(action: {
                                         pSymptom.pState.toggle()
-                                        print(pSymptom.pState)
+//                                        print(pSymptom.pState)
                                     }) {
                                         if pSymptom.pState {
                                             Image(systemName: "checkmark.square.fill")

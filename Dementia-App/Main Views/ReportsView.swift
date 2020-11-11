@@ -41,6 +41,7 @@ struct ReportsView: View {
                     
                     Button("Reset data") {
                         appState.reset = .reset
+                        MockedData()
                     }
                     
                     }.navigationBarTitle("Reports").padding()
