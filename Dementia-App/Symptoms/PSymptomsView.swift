@@ -97,8 +97,11 @@ struct PSymptomsView: View {
                     
                 }
                 .navigationBarItems(leading:
-                    Button("Cancel") { self.presentationMode.wrappedValue.dismiss()}, trailing:
-                    Button("Submit") { self.submitButton() }
+                    Button("Cancel") { self.presentationMode.wrappedValue.dismiss() }, trailing:
+                    Button("Submit") {
+                        self.submitButton()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 )
                 
             }
@@ -106,7 +109,7 @@ struct PSymptomsView: View {
     }
     
     func submitButton() { /// func and var names are lowercase
-        for i in 1...pSymptomsList.count {
+        for i in 0..<pSymptomsList.count {
             if pSymptomsList[i].pState {
                 let pSymptom = PSymptomEntity(context: self.managedObjectContext)
                 pSymptom.pSymptomName = pSymptomsList[i].pName
@@ -114,6 +117,7 @@ struct PSymptomsView: View {
                 pSymptom.pCheckedState = pSymptomsList[i].pState
                 CoreDataManager.shared.saveContext()
             }
+            
         }
     }
     
