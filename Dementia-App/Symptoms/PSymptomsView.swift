@@ -13,8 +13,6 @@ struct PSymptomsView: View {
     @Environment(\.presentationMode) var presentationMode
     @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
     @State private var newSymptom: Bool = false
-    @State private var newSymptomAdded: Bool = false
-    @State private var newSymptomName: String = ""
     
     init() {
         UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
@@ -59,18 +57,17 @@ struct PSymptomsView: View {
                                 }
                                 .listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
                             }
-                            
-                            if self.newSymptom {
-                                TextField("Enter new symptom name", text: self.$newSymptomName)
+                            .onDelete { i in
+                                let deleteSymptom = self.pSymptomsList[i.first!]
+                                self.managedObjectContext.delete(deleteSymptom)
+                                CoreDataManager.shared.saveContext()
                             }
-                            
                         }
                         .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                         .frame(width: UIScreen.main.bounds.width*0.9)
                         
                         Button(action: {
                             self.newSymptom = true
-                            self.addANewSymptom()
                         }) {
                             
                             HStack(alignment: .center) {
@@ -88,8 +85,8 @@ struct PSymptomsView: View {
                             .foregroundColor(Color(.white))
                             .frame(width: geometry.size.width * 0.5,
                                    height: geometry.size.height * 0.063)
-                                .background(Color.blue)
-                                .cornerRadius(10)
+                            .background(Color.blue)
+                            .cornerRadius(10)
                             
                         }.sheet(isPresented: self.$newSymptom) {
                             NewSymptom()
@@ -99,12 +96,11 @@ struct PSymptomsView: View {
                     }
                     
                 }
-                .navigationBarItems(leading:
-                    Button("Cancel") { self.presentationMode.wrappedValue.dismiss() }, trailing:
-                    Button("Submit") {
-                        self.submitButton()
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
+                .navigationBarItems(leading: Button("Cancel") { self.presentationMode.wrappedValue.dismiss() },
+                                    trailing: Button("Submit") {
+                                                self.submitButton()
+                                                self.presentationMode.wrappedValue.dismiss()
+                                            }
                 )
                 
             }
@@ -124,16 +120,9 @@ struct PSymptomsView: View {
         
         /// reset CheckMarks
         
-//        for i in 0..<pSymptomsList.count {
-//            pSymptomsList[i].pState = false
-//        }
-    }
-    
-    func addANewSymptom() {
-        let newPSymptom = PSymptomListEntity(context: self.managedObjectContext)
-        newPSymptom.pName = newSymptomName
-        newPSymptom.pState = false
-        CoreDataManager.shared.saveContext()
+        //        for i in 0..<pSymptomsList.count {
+        //            pSymptomsList[i].pState = false
+        //        }
     }
     
 }

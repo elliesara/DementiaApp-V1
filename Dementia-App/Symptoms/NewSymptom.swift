@@ -12,6 +12,7 @@ struct NewSymptom: View {
     
     @Environment(\.presentationMode) var presentation
     @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
     @State private var newSymptom: String = ""
     
     @State private var newSypmtomArr: [String] = []
@@ -29,6 +30,13 @@ struct NewSymptom: View {
                 Button(action: {
                     
                     self.newSypmtomArr.append(self.newSymptom)
+                    
+                    let pSymptom = PSymptomListEntity(context: self.managedObjectContext)
+                    pSymptom.pName = newSymptom
+                    pSymptom.pState = false
+                    
+                    CoreDataManager.shared.saveContext()
+                    
                     self.newSymptom = ""
                     
                 }) {

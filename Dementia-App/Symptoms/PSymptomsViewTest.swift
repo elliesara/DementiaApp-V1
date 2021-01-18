@@ -118,21 +118,22 @@ struct PSymptomCell: View {
     var body: some View {
         HStack {
             Text(pSym.pName)
+            
             Spacer()
-            Button(action: {
-                pSym.pState.toggle()
-                print(pSym.pState)
-            }) {
-                if pSym.pState {
-                    Image(systemName: "checkmark.square.fill")
-                        .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
-                        .font(.system(size: UIScreen.main.bounds.width*0.06))
-                } else {
-                    Image(systemName: "square.fill")
-                        .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
-                        .font(.system(size: UIScreen.main.bounds.width*0.06))
-                }
+            
+            if pSym.pState {
+                Image(systemName: "checkmark.square.fill")
+                    .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
+                    .font(.system(size: UIScreen.main.bounds.width*0.06))
+            } else {
+                Image(systemName: "square.fill")
+                    .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
+                    .font(.system(size: UIScreen.main.bounds.width*0.06))
             }
+        }.contentShape(Rectangle())
+        .onTapGesture {
+            pSym.pState.toggle()
+            print(pSym.pState)
         }
     }
 }
