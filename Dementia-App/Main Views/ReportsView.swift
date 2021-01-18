@@ -41,14 +41,17 @@ struct ReportsView: View {
                     
                     Button("Reset data") {
                         appState.reset = .reset
-                        MockedData()
+                        let _ = MockedData()
                     }
                     
-                    }.navigationBarTitle("Reports").padding()
-                    .onAppear() {
-                        CoreDataManager.shared.whereIsMySQLite()
+                    
+                }.navigationBarTitle("Reports")
+                .padding(.bottom)
+                .onAppear() {
+                    CoreDataManager.shared.whereIsMySQLite()
                 }
             }
+            .frame(alignment: .leading)
         }
     }
 }

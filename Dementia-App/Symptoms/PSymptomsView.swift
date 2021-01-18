@@ -30,13 +30,13 @@ struct PSymptomsView: View {
                     
                     VStack {
                         
-                        Text("Physical Symptoms").font(.largeTitle).fontWeight(.bold).foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
+                        Text("Physical Symptoms").font(.largeTitle).fontWeight(.bold)
                         Text("Select all that apply").font(.caption).foregroundColor(Color.blue)
                             .padding(.top, geometry.size.height*0.013)
                         
                         List {
                             ForEach(self.pSymptomsList) { pSymptom in
-                                HStack {
+                                HStack { /// changed to .onTapGesture()
                                     Text(pSymptom.pName)
                                     
                                     Spacer()
@@ -63,7 +63,6 @@ struct PSymptomsView: View {
                                 CoreDataManager.shared.saveContext()
                             }
                         }
-                        .foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
                         .frame(width: UIScreen.main.bounds.width*0.9)
                         
                         Button(action: {
