@@ -38,10 +38,7 @@ struct PSymptomsViewTest: View {
                         
                         List {
                             ForEach(self.pSymptomsList) { pSymptom in
-                                HStack {
-                                    Text(pSymptom.pName)
-                                    PSymptomCell(pSym: pSymptom)
-                                }.listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
+                                PSymptomCell(pSym: pSymptom).listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
                             }
                             
                             if self.newSymptom {
@@ -54,7 +51,6 @@ struct PSymptomsViewTest: View {
                         
                         Button(action: {
                             self.newSymptom = true
-                            self.addANewSymptom()
                         }) {
                             
                             HStack(alignment: .center) {
@@ -75,6 +71,8 @@ struct PSymptomsViewTest: View {
                             .background(Color.blue)
                             .cornerRadius(10)
                             
+                        }.sheet(isPresented: self.$newSymptom) {
+                            NewSymptom()
                         }
                         
                         Spacer()
@@ -82,8 +80,11 @@ struct PSymptomsViewTest: View {
                     
                 }
                 .navigationBarItems(leading:
-                                        Button("Cancel") { self.presentationMode.wrappedValue.dismiss()}, trailing:
-                                            Button("Submit") { self.submitButton() }
+                    Button("Cancel") { self.presentationMode.wrappedValue.dismiss() }, trailing:
+                    Button("Submit") {
+                        self.submitButton()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
                 )
                 
             }
@@ -91,15 +92,15 @@ struct PSymptomsViewTest: View {
     }
     
     func submitButton() { /// func and var names are lowercase
-        for i in 1...pSymptomsList.count {
+        for i in 0..<pSymptomsList.count {
             if pSymptomsList[i].pState {
                 let pSymptom = PSymptomEntity(context: self.managedObjectContext)
                 pSymptom.pSymptomName = pSymptomsList[i].pName
                 pSymptom.pCreatedAt = Date()
                 pSymptom.pCheckedState = pSymptomsList[i].pState
-                CoreDataManager.shared.saveContext()
             }
         }
+        CoreDataManager.shared.saveContext()
     }
     
     func addANewSymptom() {
@@ -108,16 +109,11 @@ struct PSymptomsViewTest: View {
         newPSymptom.pState = false
         CoreDataManager.shared.saveContext()
     }
-    
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        textField.resignFirstResponder()  //if desired
-        return true
-    }
 }
 
 struct PSymptomCell: View {
-    
-    var pSym: PSymptomListEntity
+
+    var pSym: FetchedResults<PSymptomListEntity>.Element
     
     var body: some View {
         HStack {

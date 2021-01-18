@@ -90,6 +90,8 @@ struct PSymptomsView: View {
                                 .background(Color.blue)
                                 .cornerRadius(10)
                             
+                        }.sheet(isPresented: self.$newSymptom) {
+                            NewSymptom()
                         }
                         
                         Spacer()
@@ -115,12 +117,16 @@ struct PSymptomsView: View {
                 pSymptom.pSymptomName = pSymptomsList[i].pName
                 pSymptom.pCreatedAt = Date()
                 pSymptom.pCheckedState = pSymptomsList[i].pState
-                CoreDataManager.shared.saveContext()
             }
-            
         }
+        CoreDataManager.shared.saveContext()
+        
+        /// reset CheckMarks
+        
+//        for i in 0..<pSymptomsList.count {
+//            pSymptomsList[i].pState = false
+//        }
     }
-    
     
     func addANewSymptom() {
         let newPSymptom = PSymptomListEntity(context: self.managedObjectContext)
