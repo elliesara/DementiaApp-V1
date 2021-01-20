@@ -119,9 +119,9 @@ struct PSymptomsView: View {
         
         /// reset CheckMarks
         
-        //        for i in 0..<pSymptomsList.count {
-        //            pSymptomsList[i].pState = false
-        //        }
+        for i in 0..<pSymptomsList.count {
+            pSymptomsList[i].pState = false
+        }
     }
     
 }
