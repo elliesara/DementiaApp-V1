@@ -31,11 +31,11 @@ final class CoreDataManager {
     
     func saveContext () {
         let context = persistentContainer.viewContext
-        print("<<Inside saveContext>>")
+        print("<< Inside saveContext >>")
         if context.hasChanges {
             do {
                 try context.save()
-                print("<<Saved successfully!>>")
+                print("<< Saved successfully! >>")
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")

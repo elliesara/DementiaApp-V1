@@ -11,7 +11,9 @@ import SwiftUI
 struct ReportsView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var appState: AppState
     @FetchRequest(fetchRequest: PSymptomEntity.getPSymptoms()) var physicalSymptoms: FetchedResults<PSymptomEntity>
+    
     @State private var expand = false
     
     var body: some View {
@@ -38,14 +40,18 @@ struct ReportsView: View {
                     }
                     
                     Button("Reset data") {
-                        CoreDataManager.shared.deleteAllObjects(PSymptomEntity.self)
+                        appState.reset = .reset
+                        let _ = MockedData()
                     }
                     
-                    }.navigationBarTitle("Reports").padding()
-                    .onAppear() {
-                        CoreDataManager.shared.whereIsMySQLite()
+                    
+                }.navigationBarTitle("Reports")
+                .padding(.bottom)
+                .onAppear() {
+                    CoreDataManager.shared.whereIsMySQLite()
                 }
             }
+            .frame(alignment: .leading)
         }
     }
 }

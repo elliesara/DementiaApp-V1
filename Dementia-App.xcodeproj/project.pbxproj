@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		0D0DE49824FC397B00C6CE2C /* PSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DE49724FC397B00C6CE2C /* PSymptomView.swift */; };
+		0D17AD662516FEDF0017DDC7 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17AD652516FEDF0017DDC7 /* AppState.swift */; };
 		0D31529E24E8930D0090886F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31529D24E8930D0090886F /* CoreDataManager.swift */; };
 		0D62486424C3DA600085C195 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486324C3DA600085C195 /* HomeView.swift */; };
 		0D62486624C3DA800085C195 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486524C3DA800085C195 /* ReportsView.swift */; };
 		0D62486824C3DA920085C195 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486724C3DA920085C195 /* SettingsView.swift */; };
-		0D62486B24C3DAB50085C195 /* BigCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486A24C3DAB50085C195 /* BigCategories.swift */; };
-		0D62486D24C3DAC60085C195 /* Physical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486C24C3DAC60085C195 /* Physical.swift */; };
-		0D62486F24C3DAD40085C195 /* Mental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486E24C3DAD40085C195 /* Mental.swift */; };
-		0D62487124C3DB2A0085C195 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487024C3DB2A0085C195 /* Social.swift */; };
-		0D62487324C3DB3E0085C195 /* PhysicalSymptoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487224C3DB3E0085C195 /* PhysicalSymptoms.swift */; };
-		0D62487524C3DB570085C195 /* MentalSymptoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487424C3DB570085C195 /* MentalSymptoms.swift */; };
-		0D62487724C3DB6A0085C195 /* SocialSymptoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487624C3DB6A0085C195 /* SocialSymptoms.swift */; };
+		0D62486B24C3DAB50085C195 /* BigCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486A24C3DAB50085C195 /* BigCategoriesView.swift */; };
+		0D62486D24C3DAC60085C195 /* PhysicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486C24C3DAC60085C195 /* PhysicalView.swift */; };
+		0D62486F24C3DAD40085C195 /* MentalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62486E24C3DAD40085C195 /* MentalView.swift */; };
+		0D62487124C3DB2A0085C195 /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487024C3DB2A0085C195 /* SocialView.swift */; };
+		0D62487324C3DB3E0085C195 /* PSymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487224C3DB3E0085C195 /* PSymptomsView.swift */; };
+		0D62487524C3DB570085C195 /* MSymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487424C3DB570085C195 /* MSymptomsView.swift */; };
+		0D62487724C3DB6A0085C195 /* SSymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487624C3DB6A0085C195 /* SSymptomsView.swift */; };
 		0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487824C3DB780085C195 /* NewSymptom.swift */; };
 		0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487B24C3DBA50085C195 /* TrackDiet.swift */; };
 		0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D62487E24C3DBC00085C195 /* Questionaire.swift */; };
+		0D6CD1F92515B155008DDBAA /* PSymptomListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6CD1F82515B155008DDBAA /* PSymptomListEntity.swift */; };
+		0D6CD1FB2515B5EB008DDBAA /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6CD1FA2515B5EB008DDBAA /* MockedData.swift */; };
 		0D71A568250439600072CF61 /* Dementia-App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D71A566250439600072CF61 /* Dementia-App.xcdatamodeld */; };
 		0D755C7D250C8AE100306BE7 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D755C7C250C8AE100306BE7 /* DateHelper.swift */; };
+		0D898151252059B8007058DC /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D898150252059B8007058DC /* TextFieldType.swift */; };
 		0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */; };
 		0D9E293E24E63E2700682DAA /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E293D24E63E2700682DAA /* AboutView.swift */; };
 		0D9E294524E6412A00682DAA /* PSymptomEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9E294424E6412A00682DAA /* PSymptomEntity.swift */; };
@@ -35,26 +39,31 @@
 		0DE3D24324C3D95A0015A31C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24224C3D95A0015A31C /* Assets.xcassets */; };
 		0DE3D24624C3D95A0015A31C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */; };
 		0DE3D24924C3D95A0015A31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */; };
+		0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D0DE49724FC397B00C6CE2C /* PSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomView.swift; sourceTree = "<group>"; };
+		0D17AD652516FEDF0017DDC7 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		0D31529D24E8930D0090886F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		0D62486324C3DA600085C195 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0D62486524C3DA800085C195 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		0D62486724C3DA920085C195 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		0D62486A24C3DAB50085C195 /* BigCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategories.swift; sourceTree = "<group>"; };
-		0D62486C24C3DAC60085C195 /* Physical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physical.swift; sourceTree = "<group>"; };
-		0D62486E24C3DAD40085C195 /* Mental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mental.swift; sourceTree = "<group>"; };
-		0D62487024C3DB2A0085C195 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
-		0D62487224C3DB3E0085C195 /* PhysicalSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalSymptoms.swift; sourceTree = "<group>"; };
-		0D62487424C3DB570085C195 /* MentalSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalSymptoms.swift; sourceTree = "<group>"; };
-		0D62487624C3DB6A0085C195 /* SocialSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSymptoms.swift; sourceTree = "<group>"; };
+		0D62486A24C3DAB50085C195 /* BigCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCategoriesView.swift; sourceTree = "<group>"; };
+		0D62486C24C3DAC60085C195 /* PhysicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalView.swift; sourceTree = "<group>"; };
+		0D62486E24C3DAD40085C195 /* MentalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalView.swift; sourceTree = "<group>"; };
+		0D62487024C3DB2A0085C195 /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
+		0D62487224C3DB3E0085C195 /* PSymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsView.swift; sourceTree = "<group>"; };
+		0D62487424C3DB570085C195 /* MSymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSymptomsView.swift; sourceTree = "<group>"; };
+		0D62487624C3DB6A0085C195 /* SSymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSymptomsView.swift; sourceTree = "<group>"; };
 		0D62487824C3DB780085C195 /* NewSymptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptom.swift; sourceTree = "<group>"; };
 		0D62487B24C3DBA50085C195 /* TrackDiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDiet.swift; sourceTree = "<group>"; };
 		0D62487E24C3DBC00085C195 /* Questionaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questionaire.swift; sourceTree = "<group>"; };
+		0D6CD1F82515B155008DDBAA /* PSymptomListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomListEntity.swift; sourceTree = "<group>"; };
+		0D6CD1FA2515B5EB008DDBAA /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		0D71A567250439600072CF61 /* Dementia-App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dementia-App.xcdatamodel"; sourceTree = "<group>"; };
 		0D755C7C250C8AE100306BE7 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		0D898150252059B8007058DC /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
 		0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		0D9E293D24E63E2700682DAA /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		0D9E294424E6412A00682DAA /* PSymptomEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomEntity.swift; sourceTree = "<group>"; };
@@ -68,6 +77,7 @@
 		0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0DE3D24824C3D95A0015A31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DE3D24A24C3D95A0015A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsViewTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,14 +104,15 @@
 		0D62486924C3DAA00085C195 /* Symptoms */ = {
 			isa = PBXGroup;
 			children = (
-				0D62486A24C3DAB50085C195 /* BigCategories.swift */,
-				0D62486C24C3DAC60085C195 /* Physical.swift */,
-				0D62486E24C3DAD40085C195 /* Mental.swift */,
-				0D62487024C3DB2A0085C195 /* Social.swift */,
-				0D62487224C3DB3E0085C195 /* PhysicalSymptoms.swift */,
-				0D62487424C3DB570085C195 /* MentalSymptoms.swift */,
-				0D62487624C3DB6A0085C195 /* SocialSymptoms.swift */,
+				0D62486A24C3DAB50085C195 /* BigCategoriesView.swift */,
+				0D62487224C3DB3E0085C195 /* PSymptomsView.swift */,
+				0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */,
+				0D62487424C3DB570085C195 /* MSymptomsView.swift */,
+				0D62487624C3DB6A0085C195 /* SSymptomsView.swift */,
 				0D62487824C3DB780085C195 /* NewSymptom.swift */,
+				0D62486C24C3DAC60085C195 /* PhysicalView.swift */,
+				0D62486E24C3DAD40085C195 /* MentalView.swift */,
+				0D62487024C3DB2A0085C195 /* SocialView.swift */,
 			);
 			path = Symptoms;
 			sourceTree = "<group>";
@@ -135,10 +146,13 @@
 			isa = PBXGroup;
 			children = (
 				0D31529D24E8930D0090886F /* CoreDataManager.swift */,
+				0D898150252059B8007058DC /* TextFieldType.swift */,
 				0D0DE49724FC397B00C6CE2C /* PSymptomView.swift */,
 				0D9E294424E6412A00682DAA /* PSymptomEntity.swift */,
+				0D6CD1F82515B155008DDBAA /* PSymptomListEntity.swift */,
 				0D9E294824E6425400682DAA /* MSymptomEntity.swift */,
 				0D9E294A24E6427F00682DAA /* SSymptomEntity.swift */,
+				0D6CD1FA2515B5EB008DDBAA /* MockedData.swift */,
 				0D755C7C250C8AE100306BE7 /* DateHelper.swift */,
 				0D71A566250439600072CF61 /* Dementia-App.xcdatamodeld */,
 			);
@@ -165,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE3D23924C3D9590015A31C /* AppDelegate.swift */,
+				0D17AD652516FEDF0017DDC7 /* AppState.swift */,
 				0DE3D23B24C3D9590015A31C /* SceneDelegate.swift */,
 				0DE3D24024C3D9590015A31C /* ContentView.swift */,
 				0D62486224C3DA430085C195 /* Main Views */,
@@ -216,7 +231,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Neuroscience Amador Valley";
 				TargetAttributes = {
 					0DE3D23524C3D9590015A31C = {
@@ -264,26 +279,31 @@
 				0D62486824C3DA920085C195 /* SettingsView.swift in Sources */,
 				0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */,
 				0D71A568250439600072CF61 /* Dementia-App.xcdatamodeld in Sources */,
-				0D62486F24C3DAD40085C195 /* Mental.swift in Sources */,
+				0D62486F24C3DAD40085C195 /* MentalView.swift in Sources */,
 				0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */,
-				0D62487524C3DB570085C195 /* MentalSymptoms.swift in Sources */,
+				0D62487524C3DB570085C195 /* MSymptomsView.swift in Sources */,
 				0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */,
 				0D31529E24E8930D0090886F /* CoreDataManager.swift in Sources */,
 				0DE3D24124C3D9590015A31C /* ContentView.swift in Sources */,
 				0D62486424C3DA600085C195 /* HomeView.swift in Sources */,
 				0D0DE49824FC397B00C6CE2C /* PSymptomView.swift in Sources */,
 				0D9E294B24E6427F00682DAA /* SSymptomEntity.swift in Sources */,
-				0D62487124C3DB2A0085C195 /* Social.swift in Sources */,
+				0D898151252059B8007058DC /* TextFieldType.swift in Sources */,
+				0D62487124C3DB2A0085C195 /* SocialView.swift in Sources */,
 				0D62486624C3DA800085C195 /* ReportsView.swift in Sources */,
-				0D62486B24C3DAB50085C195 /* BigCategories.swift in Sources */,
-				0D62487724C3DB6A0085C195 /* SocialSymptoms.swift in Sources */,
-				0D62486D24C3DAC60085C195 /* Physical.swift in Sources */,
+				0D62486B24C3DAB50085C195 /* BigCategoriesView.swift in Sources */,
+				0D62487724C3DB6A0085C195 /* SSymptomsView.swift in Sources */,
+				0D62486D24C3DAC60085C195 /* PhysicalView.swift in Sources */,
 				0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */,
+				0D6CD1F92515B155008DDBAA /* PSymptomListEntity.swift in Sources */,
 				0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */,
 				0D9E294924E6425400682DAA /* MSymptomEntity.swift in Sources */,
 				0D9E294524E6412A00682DAA /* PSymptomEntity.swift in Sources */,
+				0D6CD1FB2515B5EB008DDBAA /* MockedData.swift in Sources */,
 				0D9E293E24E63E2700682DAA /* AboutView.swift in Sources */,
-				0D62487324C3DB3E0085C195 /* PhysicalSymptoms.swift in Sources */,
+				0D17AD662516FEDF0017DDC7 /* AppState.swift in Sources */,
+				0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */,
+				0D62487324C3DB3E0085C195 /* PSymptomsView.swift in Sources */,
 				0DE3D23C24C3D9590015A31C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +348,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -388,6 +409,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

@@ -10,25 +10,32 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let appState = AppState()
+    
     var body: some View {
+        
+        if appState.reset == .reset {
+            MockedData()
+        }
+        
         TabView {
             HomeView()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
-            }
+                }
             
             ReportsView()
                 .tabItem {
                     Image(systemName: "doc.on.clipboard")
                     Text("Reports")
-            }
+                }
             
             SettingsView()
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")
-            }
+                }
         }
     }
 }

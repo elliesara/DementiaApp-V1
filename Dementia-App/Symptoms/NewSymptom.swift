@@ -9,58 +9,89 @@
 import SwiftUI
 
 struct NewSymptom: View {
-
+    
     @Environment(\.presentationMode) var presentation
-    @State var newSymptom: String = ""
-    @State var addSymptom: Bool = false
-
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
+    @State private var newSymptom: String = ""
+    
+    @State private var newSypmtomArr: [String] = []
+    
+    init() { /// added from Medium
+            // this is not the same as manipulating the proxy directly
+            let appearance = UINavigationBarAppearance()
+            
+            // this overrides everything you have set up earlier.
+            appearance.configureWithTransparentBackground()
+            
+            //In the following two lines you make sure that you apply the style for good
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().standardAppearance = appearance
+            
+    }
+    
     var body: some View {
-
-        VStack {
-
-            HStack {
-                Spacer()
-
-                Button(action: { self.presentation.wrappedValue.dismiss() }) {
-                    Text("Cancel")
-                }
-            }
-
-            HStack {
-                Text("New Symptom")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, UIScreen.main.bounds.width*0.03)
-                    .padding(.top)
-                Spacer()
-            }
-
-            HStack {
-                TextField("Enter new symptom name", text: $newSymptom)
-                    .textFieldStyle(CustomTextFieldStyle())
-                    .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.02)
-
-                Button(action: { self.addSymptom = true }) {
-                    HStack(alignment: .center) {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width*0.05, height: UIScreen.main.bounds.height*0.03)
+        NavigationView {
+            
+            ZStack { /// added
+                Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)).edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    
+                    HStack {
+                        
+                        TextField("Enter new symptom name", text: $newSymptom)
+                            .textFieldStyle(CustomTextFieldStyle())
+                            .frame(width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.04)
+                        
+                        Button(action: {
+                            
+                            self.newSypmtomArr.append(self.newSymptom)
+                            
+                            let pSymptom = PSymptomListEntity(context: self.managedObjectContext)
+                            pSymptom.pName = newSymptom
+                            pSymptom.pState = false
+                            
+                            CoreDataManager.shared.saveContext()
+                            
+                            self.newSymptom = ""
+                            
+                        }) {
+                            
+                            HStack(alignment: .center) {
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: UIScreen.main.bounds.width*0.1, height: UIScreen.main.bounds.height*0.02)
+                            }
+                            .foregroundColor(Color.white)
+                            .frame(width: UIScreen.main.bounds.width*0.15, height: UIScreen.main.bounds.height*0.037)
+                            .background(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
+                            
+                        }
+                        .cornerRadius(8)
+                        .frame(width: UIScreen.main.bounds.width*0.15, height: UIScreen.main.bounds.height*0.037)
+                        
                     }
-                    .foregroundColor(Color.white)
-                    .frame(width: UIScreen.main.bounds.width*0.1, height: UIScreen.main.bounds.height*0.045)
-                    .background(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
-                    .cornerRadius(8)
+                    
+                    List {
+                        ForEach(0..<self.newSypmtomArr.count, id:\.self) {
+                            Text(self.newSypmtomArr[$0])
+                        }.listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1))) /// added
+                    }
+                    
+                    Spacer()
+                    
                 }
+                .navigationBarTitle("Add New Symptom", displayMode: .inline) /// added/changed
+                .navigationBarItems(leading: Button("Cancel") { self.presentation.wrappedValue.dismiss() },
+                                    trailing: Button("Done") { self.presentation.wrappedValue.dismiss() }
+                                    
+                )
+                .padding()
+                
             }
-
-            Spacer()
-
-        }.padding()
-        .navigationBarItems(trailing:
-            Button(action: { self.presentation.wrappedValue.dismiss() }) {
-                Text("Submit")
-        })
+        }
     }
 }
 
