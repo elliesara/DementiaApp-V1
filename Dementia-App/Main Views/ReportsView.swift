@@ -39,6 +39,7 @@ struct ReportsView: View {
                         }
                     }
                     
+                    /// RESETS DATA WITHIN APP (Only used for debugging purposes)
 //                    Button("Reset data") {
 //                        appState.reset = .reset
 //                        let _ = MockedData()
