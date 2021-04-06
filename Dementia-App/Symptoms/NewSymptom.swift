@@ -17,14 +17,14 @@ struct NewSymptom: View {
     
     @State private var newSypmtomArr: [String] = []
     
-    init() { /// added from Medium
-            // this is not the same as manipulating the proxy directly
+    init() {
+            // Not the same as manipulating the proxy directly
             let appearance = UINavigationBarAppearance()
             
-            // this overrides everything you have set up earlier.
+            // This overrides everything we set up earlier
             appearance.configureWithTransparentBackground()
             
-            //In the following two lines you make sure that you apply the style for good
+            // We make sure to apply the style for good
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
             UINavigationBar.appearance().standardAppearance = appearance
             
@@ -33,8 +33,8 @@ struct NewSymptom: View {
     var body: some View {
         NavigationView {
             
-            ZStack { /// added
-                Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)).edgesIgnoringSafeArea(.all)
+            ZStack {
+                Color(#colorLiteral(red: 0.9568627477, green: 0.8000291185, blue: 0.7665636, alpha: 1)).edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     
@@ -77,13 +77,13 @@ struct NewSymptom: View {
                     List {
                         ForEach(0..<self.newSypmtomArr.count, id:\.self) {
                             Text(self.newSypmtomArr[$0])
-                        }.listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1))) /// added
+                        }.listRowBackground(Color(#colorLiteral(red: 0.9568627477, green: 0.8000291185, blue: 0.7665636, alpha: 1))) /// added
                     }
                     
                     Spacer()
                     
                 }
-                .navigationBarTitle("Add New Symptom", displayMode: .inline) /// added/changed
+                .navigationBarTitle("Add New Symptom", displayMode: .inline)
                 .navigationBarItems(leading: Button("Cancel") { self.presentation.wrappedValue.dismiss() },
                                     trailing: Button("Done") { self.presentation.wrappedValue.dismiss() }
                                     

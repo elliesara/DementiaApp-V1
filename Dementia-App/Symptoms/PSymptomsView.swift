@@ -37,7 +37,7 @@ struct PSymptomsView: View {
                         List {
                             
                             ForEach(self.pSymptomsList) { pSymptom in
-                                HStack { /// changed to .onTapGesture()
+                                HStack {
                                     
                                     Text(pSymptom.pName)
                                     
@@ -57,7 +57,7 @@ struct PSymptomsView: View {
                                     pSymptom.pState.toggle()
                                     print(pSymptom.pState)
                                 }
-                                .listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)))
+                                .listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 0)))
                             }
                             .onDelete { i in
                                 let deleteSymptom = self.pSymptomsList[i.first!]

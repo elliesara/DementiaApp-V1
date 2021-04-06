@@ -35,7 +35,7 @@ struct ReportsView: View {
                     
                     if expand {
                         ForEach(physicalSymptoms) { pSymptom in
-                            PSymptomView(pSymptomName: pSymptom.pSymptomName, pCreatedAt:  "\(pSymptom.pCreatedAt.shortMedium)")
+                            PSymptomView(pSymptomName: pSymptom.pSymptomName, pCreatedAt: "\(pSymptom.pCreatedAt.shortMedium)").padding(.top)
                         }
                     }
                     
@@ -52,7 +52,6 @@ struct ReportsView: View {
                     CoreDataManager.shared.whereIsMySQLite()
                 }
             }
-            .frame(alignment: .leading)
         }
     }
 }
