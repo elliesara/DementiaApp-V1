@@ -18,7 +18,7 @@ struct AboutView: View {
             Spacer()
                 .frame(height:20)
             
-            Text("This dementia app was designed by the members of the neuroscience club of Amador Valley high School in Pleasanton, CA. Our goal is to help the community by applying what we have learned to help people with various neurological disorders. ")
+            Text("This app was designed by members of the Neuroscience Club at Amador Valley High School in Pleasanton, CA. Our goal is to help the community by applying what we have learned to help people with various neurological disorders. ")
                     .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(Color.black)

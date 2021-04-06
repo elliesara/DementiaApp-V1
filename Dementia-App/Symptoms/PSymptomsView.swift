@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PSymptomsView: View {
     
-    @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
     @State private var newSymptom: Bool = false
     
@@ -35,8 +35,10 @@ struct PSymptomsView: View {
                             .padding(.top, geometry.size.height*0.013)
                         
                         List {
+                            
                             ForEach(self.pSymptomsList) { pSymptom in
                                 HStack { /// changed to .onTapGesture()
+                                    
                                     Text(pSymptom.pName)
                                     
                                     Spacer()

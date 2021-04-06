@@ -1,5 +1,5 @@
 //
-//  CDManager.swift
+//  CoreDataManager.swift
 //  Dementia-App
 //
 //  Created by Ellie Sara Huang on 7/22/20.

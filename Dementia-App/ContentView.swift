@@ -19,7 +19,7 @@ struct ContentView: View {
         }
         
         TabView {
-            HomeView()
+            HomePage()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")

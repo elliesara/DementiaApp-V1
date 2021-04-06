@@ -39,10 +39,10 @@ struct ReportsView: View {
                         }
                     }
                     
-                    Button("Reset data") {
-                        appState.reset = .reset
-                        let _ = MockedData()
-                    }
+//                    Button("Reset data") {
+//                        appState.reset = .reset
+//                        let _ = MockedData()
+//                    }
                     
                     
                 }.navigationBarTitle("Reports")
