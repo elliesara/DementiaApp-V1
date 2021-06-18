@@ -14,6 +14,15 @@ struct ReportsView: View {
     @EnvironmentObject var appState: AppState
     @FetchRequest(fetchRequest: PSymptomEntity.getPSymptoms()) var physicalSymptoms: FetchedResults<PSymptomEntity>
     
+    let physical = [PSymptomEntity()]
+    
+//    func appendList() {
+//        ForEach(physicalSymptoms) { symptom in
+//        var name = symptom.pSymptomName
+//        physical.append(name)
+//        }
+//    }
+    
     @State private var expand = false
     
     var body: some View {

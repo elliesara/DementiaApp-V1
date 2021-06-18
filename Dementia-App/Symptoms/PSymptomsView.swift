@@ -15,8 +15,8 @@ struct PSymptomsView: View {
     @State private var newSymptom: Bool = false
     
     init() {
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
+        UITableView.appearance().backgroundColor = UIColor.clear
+        UITableViewCell.appearance().backgroundColor = UIColor.clear
         UITableView.appearance().tableFooterView = UIView()
     }
     
@@ -57,7 +57,6 @@ struct PSymptomsView: View {
                                     pSymptom.pState.toggle()
                                     print(pSymptom.pState)
                                 }
-                                .listRowBackground(Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 0)))
                             }
                             .onDelete { i in
                                 let deleteSymptom = self.pSymptomsList[i.first!]
@@ -117,13 +116,14 @@ struct PSymptomsView: View {
                 pSymptom.pCheckedState = pSymptomsList[i].pState
             }
         }
-        CoreDataManager.shared.saveContext()
         
         /// reset CheckMarks
         
         for i in 0..<pSymptomsList.count {
             pSymptomsList[i].pState = false
         }
+        
+        CoreDataManager.shared.saveContext()
     }
     
 }
