@@ -9,25 +9,16 @@
 import SwiftUI
 
 struct MSymptomsView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @Environment(\.presentationMode) var presentationMode
-    @State private var newSymptom: Bool = false
-    private let mSymptoms = ["Disturbed thought process",
-                             "Chronic confusion",
-                             "Decreased ability to reason",
-                             "Decreased attention span",
-                             "Easy distractability",
-                             "Lack of inhibition",
-                             "Inappropriate social behavior",
-                             "Paranoia",
-                             "Explosive behavior",]
-    @State var mChecks = [false, false, false, false]
     
-    init(){
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
-        UITableView.appearance().tableFooterView = UIView()
-    }
+    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @State private var showingActionSheet = false
+    @State private var selectedSymptom: SymptomSelection?
+    
+    @State private var symptoms: [SymptomSelection] = []
+    @State private var newSymptom: Bool = false
+    private let symptomsSeverities = ["None", "Mild", "Moderate", "Severe", "Deadly"]
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,84 +26,181 @@ struct MSymptomsView: View {
             NavigationView {
                 
                 ZStack {
-                    Color(#colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)).edgesIgnoringSafeArea(.all)
+                    Color(#colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)).edgesIgnoringSafeArea(.all)
                     
-                    VStack() {
+                    VStack {
                         
-                        Text("Mental Symptoms").fontWeight(.bold).font(.largeTitle).foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1)))
-                        Text("Select all that apply").font(.caption).foregroundColor(Color.blue)
-                            .padding(.top, geometry.size.height*0.013)
+                        Text("\"How are you feeling today?\"")
+                            .font(.headline)
+                            .italic()
+                            .padding()
                         
                         List {
-                            ForEach(0..<self.mChecks.count) { i in
+                            ForEach(symptoms) { symptom in
                                 HStack {
-                                    Text(self.mSymptoms[i])
-                                    Spacer()
-                                    Button(action: {
-                                        self.mChecks[i].toggle()
-                                        print(self.mChecks[i])
-                                    }) {
-                                        if self.mChecks[i] {
-                                            Image(systemName: "checkmark.square.fill")
-                                                .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
-                                                .font(.system(size: UIScreen.main.bounds.width*0.06))
-                                        } else {
-                                            Image(systemName: "square.fill")
-                                                .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
-                                                .font(.system(size: UIScreen.main.bounds.width*0.06))
+                                    if #available(iOS 14.0, *) {
+                                        Menu {
+                                            ForEach(symptomsSeverities.indices) { index in
+                                                Button(symptomsSeverities[index]) {
+                                                    onSeveritySelection(severityIndex: index, symptom: symptom)
+                                                }
+                                            }
+                                        } label: {
+                                            row(for: symptom)
                                         }
+                                    } else {
+                                        row(for: symptom)
+                                            .contentShape(Rectangle())
+                                            .onTapGesture {
+                                                showingActionSheet = true
+                                                selectedSymptom = symptom
+                                            }
                                     }
                                 }
-                            }.listRowBackground(Color(#colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)))
-                        }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.9)
-                        
-                        Button(action: { self.newSymptom = true}) {
-                            
-                            HStack(alignment: .center) {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geometry.size.width * 0.05,
-                                           height: geometry.size.height * 0.05)
-                                
-                                Text("New Symptom")
-                                    .font(.system(size: geometry.size.width * 0.048))
-                                    .fontWeight(.bold)
+                                .listRowBackground(Color.clear)
                             }
-                            .padding()
-                            .foregroundColor(Color(.white))
-                            .frame(width: geometry.size.width * 0.5,
-                                   height: geometry.size.height * 0.063)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                            
-                        }.sheet(isPresented: self.$newSymptom) {
+                            .onDelete { i in
+                                let symptomName = symptoms[i.first!].name
+                                if let deleteSymptom = symptomsEntities.first(where: { $0.mName == symptomName }) {
+                                    self.managedObjectContext.delete(deleteSymptom)
+                                    CoreDataManager.shared.saveContext()
+                                    symptoms.remove(at: i.first!)
+                                }
+                            }
+                        }
+                        .frame(width: UIScreen.main.bounds.width*0.9)
+                        
+                        Button(action: {
+                            self.newSymptom = true
+                        }) {
+                            NewSymptomButtonView(geometry: geometry)
+                        }.sheet(isPresented: self.$newSymptom, onDismiss: {
+                            fetchSymptoms()
+                        }) {
                             NewSymptom()
+                                .environment(\.managedObjectContext, managedObjectContext)
                         }
                         
                         Spacer()
-                    }.navigationBarItems(leading:
-                        Button("Cancel") { self.presentationMode.wrappedValue.dismiss()}, trailing:
-                        Button("Submit") { self.submitButton() }
-                    )
+                    }
+                    
+                }
+                .navigationBarTitle("Mental Symptoms", displayMode: .inline)
+                .navigationBarItems(leading: Button("Cancel") { self.presentationMode.wrappedValue.dismiss() },
+                                    trailing: Button("Submit") {
+                                                self.submitButton()
+                                                self.presentationMode.wrappedValue.dismiss()
+                                            }
+                )
+                .actionSheet(isPresented: $showingActionSheet) {
+                    ActionSheet(title: Text("Select severity"),
+                                message: Text(selectedSymptom?.name ?? ""),
+                                buttons: symptomsSeverities.indices.map { index in
+                                    .default(Text(symptomsSeverities[index])) {
+                                        onSeveritySelection(severityIndex: index, symptom: selectedSymptom!)
+                                    }
+                                })
+                }
+                .onAppear {
+                    fetchSymptoms()
                 }
                 
             }
         }
     }
     
-    func submitButton() {
-        for i in 0..<mChecks.count {
-            print("\(i): \(mChecks[i])")
-            if mChecks[i] == true {
-                let mSymptom = MSymptomEntity(context: self.managedObjectContext)
-                mSymptom.mSymptomName = mSymptoms[i]
-                mSymptom.mCreatedAt = Date()
-                mSymptom.mCheckedState = mChecks[i]
-                CoreDataManager.shared.saveContext()
+    private func row(for symptom: SymptomSelection) -> some View {
+        HStack {
+            if symptom.checked {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(Color(#colorLiteral(red: 0, green: 0.5492870212, blue: 1, alpha: 1)))
+                    .font(.system(size: UIScreen.main.bounds.width*0.05))
+            } else {
+                Image(systemName: "circle.fill")
+                    .foregroundColor(Color(#colorLiteral(red: 0.9339778938, green: 0.9339778938, blue: 0.9339778938, alpha: 1)))
+                    .font(.system(size: UIScreen.main.bounds.width*0.05))
             }
+            Text(symptom.name)
+                .fixedSize(horizontal: false, vertical: true)
+                .foregroundColor(.white)
+            Spacer()
+            Text(severityText(for: symptom))
+                .padding(5)
+                .background(Color(severityColor(for: symptom)))
+                .cornerRadius(5)
+                .foregroundColor(.white)
+                .frame(minWidth: 90)
         }
     }
+    
+    private func severityText(for symptom: SymptomSelection) -> String {
+        let severity = symptom.severity ?? 0
+        if severity == 0 {
+            return "Severity"
+        }
+        return symptomsSeverities[severity]
+    }
+    
+    private func severityColor(for symptom: SymptomSelection) -> UIColor {
+        let severity = symptom.severity ?? 0
+        switch severity {
+        case 1:
+            return #colorLiteral(red: 0.2216491533, green: 0.3751649105, blue: 0.8584440176, alpha: 1)
+        case 2:
+            return #colorLiteral(red: 0.1818526089, green: 0.2700923681, blue: 0.5435188413, alpha: 1)
+        case 3:
+            return #colorLiteral(red: 0.3910571039, green: 0.1766899824, blue: 0.1648342609, alpha: 1)
+        case 4:
+            return #colorLiteral(red: 0.7155836225, green: 0.2962410748, blue: 0.2824460268, alpha: 1)
+        default:
+            return UIColor.gray
+        }
+    }
+    
+    private func onSeveritySelection(severityIndex: Int, symptom: SymptomSelection) {
+        guard let index = symptoms.firstIndex(where: { $0.id == symptom.id }) else {
+            return
+        }
+        
+        if severityIndex == 0 {
+            symptoms[index].checked = false
+            symptoms[index].severity = nil
+            return
+        }
+        symptoms[index].checked = true
+        symptoms[index].severity = severityIndex
+        
+    }
+    
+    private func submitButton() { /// func and var names are lowercase
+        for symptom in symptoms where symptom.checked {
+            let mSymptom = MSymptomEntity(context: self.managedObjectContext)
+            mSymptom.mSymptomName = symptom.name
+            mSymptom.mCreatedAt = Date()
+            mSymptom.mCheckedState = true
+            mSymptom.mSeverity = Int16(symptom.severity ?? 0)
+        }
+        
+        CoreDataManager.shared.saveContext()
+    }
+    
+    private func fetchSymptoms() {
+        var newSymptoms = symptomsEntities.map { SymptomSelection(name: $0.mName, checked: false, severity: nil) }
+        for symptom in symptoms where symptom.checked {
+            if let index = newSymptoms.firstIndex(where: {$0.name == symptom.name}) {
+                newSymptoms[index].checked = true
+                newSymptoms[index].severity = symptom.severity
+            }
+        }
+        
+        symptoms = newSymptoms
+    }
+    
+    private var symptomsEntities: [MSymptomListEntity] {
+        let request = MSymptomListEntity.getMSymptomList()
+        return try! managedObjectContext.fetch(request)
+    }
+    
 }
 
 struct MSymptomsView_Previews: PreviewProvider {
